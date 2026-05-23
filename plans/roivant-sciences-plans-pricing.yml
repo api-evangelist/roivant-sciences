@@ -1,0 +1,50 @@
+apiCommonsPlansVersion: '0.1'
+name: Roivant Sciences Plans and Pricing
+description: |
+  Public pricing is not published for any Roivant operating unit. The biopharma
+  Vants (Immunovant, Priovant, Covant, Genevant, Pulmovant, PsiThera, Proxima,
+  Zest Health) do not sell APIs at all — they sell therapeutics and clinical
+  services. The technology Vants (Datavant and Lokavant) sell into enterprise
+  health-system, payer, life-sciences, and CRO buyers through direct sales;
+  contracts are bespoke and gated by the Datavant Connect invite-only portal
+  and Lokavant's customer-onboarding process.
+url: https://github.com/api-evangelist/roivant-sciences/plans/roivant-sciences-plans-pricing.yml
+provider: roivant-sciences
+created: '2026-05-23'
+modified: '2026-05-23'
+
+plans:
+  - id: datavant-enterprise
+    name: Datavant Enterprise (Contact Sales)
+    surface: Datavant Connect / Healthjump / Datavant CLI
+    audience: Health systems, payers, life-sciences companies, real-world-data partners
+    pricing_model: Enterprise contract — pricing not published
+    access: Invite-only portal at https://portal.datavant.com
+    notes: |
+      Datavant publishes scale claims (60M+ records moved, 80,000+ hospitals
+      and clinics, 75% of top-100 health systems, 350+ RWD partners, 100% of
+      US payers) but no public price list. Customers contact Datavant sales
+      and are issued portal credentials by a portal administrator.
+
+  - id: lokavant-enterprise
+    name: Lokavant Enterprise (Contact Sales)
+    surface: Lokavant Clinical Trial Intelligence Platform (Oversight, Insight, Spectrum, Feasibility, Medical Monitoring)
+    audience: Trial sponsors, CROs
+    pricing_model: Enterprise contract — pricing not published
+    access: Customer onboarding only; SSO via Cognito SAML2/OIDC
+    notes: |
+      Lokavant sells annual platform subscriptions to sponsors and CROs.
+      Public site does not disclose tiers, per-trial pricing, or seat costs.
+
+  - id: roivant-biopharma-vants
+    name: Roivant Biopharma Vants — Not Applicable
+    surface: Immunovant, Priovant, Covant, Genevant, Pulmovant, PsiThera, Proxima, Zest Health
+    audience: Clinicians, patients, regulatory agencies, pharmaceutical partners
+    pricing_model: Not applicable — therapeutic products, not APIs
+    notes: |
+      Genevant licenses LNP delivery technology to partners (Arbutus,
+      Epitopea, etc.) under bespoke patent-license terms; this is IP
+      licensing rather than an API plan.
+
+publicPricingAvailable: false
+contactSales: https://www.datavant.com/contact-us

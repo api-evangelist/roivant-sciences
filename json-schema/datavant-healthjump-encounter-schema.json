@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/api-evangelist/roivant-sciences/json-schema/datavant-healthjump-encounter-schema.json",
+  "title": "Datavant Healthjump Encounter",
+  "description": "Standardized clinical encounter record exposed by the Datavant Healthjump EHR Integration API.",
+  "type": "object",
+  "properties": {
+    "hj_import_int": { "type": "integer" },
+    "client_id": { "type": "integer" },
+    "encounter_id": { "type": "string" },
+    "patient_id": { "type": "string" },
+    "provider_id": { "type": "string" },
+    "encounter_type": { "type": "string", "description": "Office visit, telehealth, hospital admit, etc." },
+    "encounter_date": { "type": "string", "format": "date-time" },
+    "reason_for_visit": { "type": "string" },
+    "location": { "type": "string" },
+    "status": { "type": "string" },
+    "date_created": { "type": "string", "format": "date-time" },
+    "date_modified": { "type": "string", "format": "date-time" }
+  },
+  "required": ["client_id", "encounter_id", "patient_id", "encounter_date"]
+}

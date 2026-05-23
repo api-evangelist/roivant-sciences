@@ -1,0 +1,70 @@
+extends: [[spectral:oas, all]]
+rules:
+  summary-required:
+    description: Every operation must have a summary.
+    given: $.paths[*][get,post,put,patch,delete]
+    severity: error
+    then:
+      field: summary
+      function: truthy
+
+  summary-title-case:
+    description: Operation summaries must use Title Case.
+    given: $.paths[*][get,post,put,patch,delete].summary
+    severity: warn
+    then:
+      function: pattern
+      functionOptions:
+        match: '^[A-Z][A-Za-z0-9]*( [A-Z][A-Za-z0-9]*)*$'
+
+  operation-id-camel-case:
+    description: operationId must be camelCase (Datavant convention).
+    given: $.paths[*][get,post,put,patch,delete].operationId
+    severity: error
+    then:
+      function: pattern
+      functionOptions:
+        match: '^[a-z][a-zA-Z0-9]*$'
+
+  patient-id-snake-case:
+    description: Patient identifiers must use snake_case (patient_id, external_patient_id).
+    given: $.paths[?(@property.match(/patient/i))]
+    severity: warn
+    then:
+      function: pattern
+      functionOptions:
+        match: '^.*/{?patient_id}?.*$'
+
+  client-id-required-on-list:
+    description: List endpoints should accept a client_id query parameter scoping to a connected practice.
+    given: $.paths[?(@property.match(/^\/(patients|encounters|vitals|allergies|immunizations|medications|diagnoses|procedures|labs|documents|appointments|providers)$/))].get.parameters[*].name
+    severity: warn
+    then:
+      function: enumeration
+      functionOptions:
+        values: [client_id, patient_id, modified_since, limit, cursor]
+
+  oauth-required:
+    description: Every operation should be protected by OAuth2 clientCredentials flow.
+    given: $.security
+    severity: error
+    then:
+      function: truthy
+
+  servers-versioned:
+    description: Server URLs must include an explicit /v{n} path segment.
+    given: $.servers[*].url
+    severity: error
+    then:
+      function: pattern
+      functionOptions:
+        match: '/v[0-9]+(/|$)'
+
+  tag-title-case:
+    description: Tags must use Title Case.
+    given: $.tags[*].name
+    severity: warn
+    then:
+      function: pattern
+      functionOptions:
+        match: '^[A-Z][A-Za-z0-9]*( [A-Z][A-Za-z0-9]*)*$'

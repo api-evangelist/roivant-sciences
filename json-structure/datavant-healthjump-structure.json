@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/api-evangelist/roivant-sciences/json-structure/datavant-healthjump-structure.json",
+  "title": "Datavant Healthjump Patient Bundle Structure",
+  "description": "Composite payload structure showing how Healthjump records hang off a patient when assembling a longitudinal record bundle. Aligns to the per-entity schemas in json-schema/.",
+  "type": "object",
+  "properties": {
+    "patient": { "$ref": "https://github.com/api-evangelist/roivant-sciences/json-schema/datavant-healthjump-patient-schema.json" },
+    "encounters": {
+      "type": "array",
+      "items": { "$ref": "https://github.com/api-evangelist/roivant-sciences/json-schema/datavant-healthjump-encounter-schema.json" }
+    },
+    "vitals": {
+      "type": "array",
+      "items": { "$ref": "https://github.com/api-evangelist/roivant-sciences/json-schema/datavant-healthjump-vitals-schema.json" }
+    },
+    "allergies": { "type": "array" },
+    "immunizations": { "type": "array" },
+    "medications": { "type": "array" },
+    "diagnoses": { "type": "array" },
+    "procedures": { "type": "array" },
+    "labs": { "type": "array" },
+    "documents": { "type": "array" },
+    "appointments": { "type": "array" }
+  },
+  "required": ["patient"]
+}

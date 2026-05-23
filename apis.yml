@@ -1,0 +1,219 @@
+name: Roivant Sciences
+description: |
+  Roivant Sciences (Nasdaq: ROIV) is a holding company that builds focused subsidiary
+  biotech and health-tech operating units called "Vants." Founded by Vivek Ramaswamy
+  in 2014 and now led by CEO Matt Gline, Roivant has launched companies across
+  immunology (Immunovant, Priovant, Covant, PsiThera), pulmonology (Pulmovant),
+  delivery technology (Genevant, Proxima), virtual care (Zest Health), and
+  health-data infrastructure (Datavant, Lokavant). Roivant's most material technology
+  surface is operated by Datavant — the US health-data exchange and tokenization
+  network it co-founded — which connects 80,000+ hospitals and clinics, links data
+  for 100% of US payers, and operates a public EHR data-extraction API under the
+  Healthjump brand. Lokavant operates a customer-only Clinical Trial Intelligence
+  Platform on AWS. The drug-discovery Vants (Immunovant, Priovant, Genevant, etc.)
+  do not expose developer APIs.
+url: https://github.com/api-evangelist/roivant-sciences
+humanURL: https://roivant.com
+baseURL: https://roivant.com
+image: https://roivant.com/favicon.ico
+tags:
+  - Biotech
+  - Pharmaceutical
+  - Drug Development
+  - Clinical Trials
+  - Health Data
+  - Tokenization
+  - Electronic Health Records
+  - Real World Evidence
+  - Holding Company
+  - Healthcare
+created: '2026-05-23'
+modified: '2026-05-23'
+specificationVersion: '0.18'
+type: Index
+aid: roivant-sciences
+access: 3rd-Party
+
+apis:
+  - name: Datavant Healthjump EHR Integration API
+    description: |
+      Public REST API operated by Datavant (via the acquired Healthjump platform) for
+      extracting clinical and financial data from 70+ on-premise and cloud-hosted
+      ambulatory EHR/PM systems. Datavant standardizes 300+ data elements across the
+      connected systems and delivers them via API, webhooks, flat file, or HL7. The
+      API surface is published at apidocs.healthjump.com and serves customers building
+      patient engagement, quality reporting, and population-health products on top of
+      ambulatory EHR data.
+    humanURL: https://www.datavant.com/products/ehr-integrations
+    baseURL: https://api.healthjump.com
+    image: https://www.datavant.com/favicon.ico
+    tags:
+      - Electronic Health Records
+      - Health Data
+      - Integration
+      - EHR
+      - Interoperability
+      - Datavant
+      - Healthjump
+    aid: datavant-healthjump-ehr
+    properties:
+      - type: Documentation
+        url: https://apidocs.healthjump.com
+      - type: APIReference
+        url: https://apidocs.healthjump.com
+      - type: GettingStarted
+        url: https://api.healthjump.com
+      - type: DeveloperPortal
+        url: https://apidocs.healthjump.com
+      - type: Portal
+        url: https://portal.datavant.com
+      - type: Support
+        url: https://support.healthjump.com
+      - type: Integrations
+        url: https://www.datavant.com/products/ehr-integrations
+      - type: StatusPage
+        url: https://status.datavant.com
+      - type: OpenAPI
+        url: openapi/datavant-healthjump-ehr-openapi.yml
+      - type: JSONSchema
+        url: json-schema/datavant-healthjump-patient-schema.json
+      - type: JSONSchema
+        url: json-schema/datavant-healthjump-encounter-schema.json
+      - type: JSONSchema
+        url: json-schema/datavant-healthjump-vitals-schema.json
+      - type: Spectral
+        url: rules/datavant-healthjump-rules.yml
+      - type: NaftikoCapability
+        url: capabilities/shared/datavant-healthjump-ehr.yaml
+
+  - name: Datavant Tokenization (Datavant Connect)
+    description: |
+      Datavant's privacy-preserving tokenization technology lets organizations link
+      patient records across datasets without exchanging personally identifiable
+      information. It is delivered as a downloadable Datavant CLI (Mac/Windows/Linux)
+      plus a Datavant Desktop GUI, runnable on-premise or in the customer's cloud
+      environment, with companion documentation in the Datavant Help Center. The
+      tokenization layer powers the broader Datavant Connect platform (Linkage
+      Solutions, Privacy Solutions, Retrieval Solutions) and the Switchboard-style
+      data ecosystem that brokers exchange across payers, providers, and 350+
+      real-world data partners.
+    humanURL: https://www.datavant.com/products/connect-linkage
+    baseURL: https://portal.datavant.com
+    image: https://www.datavant.com/favicon.ico
+    tags:
+      - Tokenization
+      - Privacy
+      - Patient Linkage
+      - Health Data
+      - Real World Data
+      - Datavant
+      - CLI
+    aid: datavant-tokenization
+    properties:
+      - type: Documentation
+        url: https://datavant-aws-marketplace-files.s3.amazonaws.com/tokenization_user_guide.pdf
+      - type: CLI
+        url: https://portal.datavant.com
+      - type: Portal
+        url: https://portal.datavant.com
+      - type: StatusPage
+        url: https://status.datavant.com
+      - type: Marketplace
+        url: https://www.datavant.com/partnerships/cloud-integrations
+      - type: WhitePaper
+        url: https://www.datavant.com/white-papers/datavant-connect-overview-tokenization-technology-structured-data
+
+  - name: Lokavant Clinical Trial Intelligence Platform
+    description: |
+      Lokavant is Roivant's clinical-trial intelligence operating unit. Its platform
+      ingests data via 21+ source connectors and a proprietary repository of 2,000+
+      harmonized prior trials plus 14,000+ third-party trials, surfacing predictive
+      analytics for sponsors and CROs through two named products: Oversight
+      (risk-based quality management at study/country/site/patient level) and Insight
+      (performance benchmarking against the historical trial corpus). The platform
+      runs on AWS — Amazon Cognito for authentication with customer SAML2/OIDC SSO,
+      API Gateway + Lambda for composite services, ECS/Fargate microservices,
+      Snowflake data marts, and Apache Airflow for ingestion. Access is invite-only
+      for sponsor/CRO customers; there is no public developer portal or OpenAPI spec.
+    humanURL: https://www.lokavant.com
+    baseURL: https://www.lokavant.com
+    image: https://www.lokavant.com/favicon.ico
+    tags:
+      - Clinical Trials
+      - Clinical Trial Intelligence
+      - Predictive Analytics
+      - Risk-Based Monitoring
+      - Trial Forecasting
+      - Lokavant
+      - Customer Only
+    aid: lokavant-clinical-trial-intelligence
+    properties:
+      - type: Portal
+        url: https://www.lokavant.com
+      - type: Documentation
+        url: https://aws.amazon.com/startups/learn/lokavant-a-paradigm-shift-in-clinical-trial-intelligence-through-aws-partnership
+      - type: Blog
+        url: https://blog.lokavant.com
+      - type: NaftikoCapability
+        url: capabilities/shared/lokavant-clinical-trial-intelligence.yaml
+
+  - name: Datavant Connect Customer Portal
+    description: |
+      Datavant Connect is the customer-facing portal that brokers access to
+      Datavant's linkage, privacy, and retrieval solutions. Access is invite-only
+      and requires portal-administrator credentials; the portal also fronts the
+      Aetion Evidence Platform (acquired by Datavant in 2024) for real-world
+      evidence workflows. Public API documentation for Connect itself is not
+      published — partners integrate through the Datavant CLI for tokenization
+      and through the Healthjump API for EHR extraction.
+    humanURL: https://portal.datavant.com
+    baseURL: https://portal.datavant.com
+    image: https://www.datavant.com/favicon.ico
+    tags:
+      - Health Data
+      - Real World Evidence
+      - Data Exchange
+      - Datavant
+      - Aetion
+      - Customer Only
+    aid: datavant-connect-portal
+    properties:
+      - type: Portal
+        url: https://portal.datavant.com
+      - type: Documentation
+        url: https://www.datavant.com/products/connect-linkage
+      - type: StatusPage
+        url: https://status.datavant.com
+
+common:
+  - type: Portal
+    url: https://roivant.com
+  - type: Documentation
+    url: https://roivant.com/companies
+  - type: Blog
+    url: https://roivant.com/news/
+  - type: InvestorRelations
+    url: https://investor.roivant.com
+  - type: GitHubOrganization
+    url: https://github.com/datavant
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/roivant-sciences
+  - type: TermsOfService
+    url: https://roivant.com/terms-of-use/
+  - type: PrivacyPolicy
+    url: https://roivant.com/privacy-policy/
+  - type: Plans
+    url: plans/roivant-sciences-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/roivant-sciences-rate-limits.yml
+  - type: FinOps
+    url: finops/roivant-sciences-finops.yml
+  - type: Vocabulary
+    url: vocabulary/roivant-sciences-vocabulary.yml
+  - type: JSONLD
+    url: json-ld/roivant-sciences-context.jsonld
+
+maintainers:
+  - FN: API Evangelist
+    email: info@apievangelist.com
+    url: https://apievangelist.com

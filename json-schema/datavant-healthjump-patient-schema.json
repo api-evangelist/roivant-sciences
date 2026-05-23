@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/api-evangelist/roivant-sciences/json-schema/datavant-healthjump-patient-schema.json",
+  "title": "Datavant Healthjump Patient",
+  "description": "Standardized patient demographic record as exposed by the Datavant Healthjump EHR Integration API across 70+ connected ambulatory EHR/PM systems.",
+  "type": "object",
+  "properties": {
+    "hj_import_int": { "type": "integer", "description": "Healthjump record import identifier." },
+    "client_id": { "type": "integer", "description": "Healthjump tenant / connected-practice identifier." },
+    "patient_id": { "type": "string", "description": "Healthjump-assigned patient identifier." },
+    "external_patient_id": { "type": "string", "description": "Source EHR-native patient identifier." },
+    "first_name": { "type": "string" },
+    "last_name": { "type": "string" },
+    "middle_name": { "type": "string" },
+    "date_of_birth": { "type": "string", "format": "date" },
+    "gender": { "type": "string", "enum": ["male", "female", "other", "unknown"] },
+    "race": { "type": "string" },
+    "ethnicity": { "type": "string" },
+    "marital_status": { "type": "string" },
+    "address_line_1": { "type": "string" },
+    "address_line_2": { "type": "string" },
+    "city": { "type": "string" },
+    "state": { "type": "string" },
+    "zip": { "type": "string" },
+    "country": { "type": "string" },
+    "phone": { "type": "string" },
+    "email": { "type": "string", "format": "email" },
+    "preferred_language": { "type": "string" },
+    "date_created": { "type": "string", "format": "date-time" },
+    "date_modified": { "type": "string", "format": "date-time" }
+  },
+  "required": ["client_id", "patient_id", "date_of_birth"]
+}

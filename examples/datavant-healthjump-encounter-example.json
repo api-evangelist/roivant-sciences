@@ -1,0 +1,14 @@
+{
+  "hj_import_int": 4421891,
+  "client_id": 1042,
+  "encounter_id": "hj-enc-2b8e7f30",
+  "patient_id": "hj-pat-9f30a1c4",
+  "provider_id": "hj-prv-117",
+  "encounter_type": "Office Visit",
+  "encounter_date": "2026-04-29T15:00:00Z",
+  "reason_for_visit": "Annual physical examination",
+  "location": "Cherry Street Family Practice",
+  "status": "Completed",
+  "date_created": "2026-04-29T15:00:00Z",
+  "date_modified": "2026-04-29T16:42:11Z"
+}

@@ -1,0 +1,57 @@
+apiCommonsRateLimitsVersion: '0.1'
+name: Roivant Sciences Rate Limits
+description: |
+  Documented rate limits for Roivant's developer-facing surfaces. Roivant's
+  biopharma Vants expose no APIs and have no rate limits. The Datavant
+  Healthjump API publishes its limits only inside the gated apidocs.healthjump.com
+  developer portal; the values captured here reflect the OpenAPI sketch
+  generated in this profiling pass (limit=100 default, max 1000 per page).
+  Lokavant and Datavant Connect are gated customer-only platforms and do not
+  publish per-request rate limits.
+url: https://github.com/api-evangelist/roivant-sciences/rate-limits/roivant-sciences-rate-limits.yml
+provider: roivant-sciences
+created: '2026-05-23'
+modified: '2026-05-23'
+
+apis:
+  - id: datavant-healthjump-ehr
+    name: Datavant Healthjump EHR Integration API
+    documented: false
+    notes: |
+      Public docs do not disclose request-rate or concurrency limits.
+      Pagination is bounded — see limits below.
+    pagination:
+      default_page_size: 100
+      max_page_size: 1000
+      cursor_based: true
+    rateLimits:
+      - dimension: requests
+        scope: per-bearer-token
+        limit: undocumented
+      - dimension: concurrency
+        scope: per-bearer-token
+        limit: undocumented
+    quotas:
+      - dimension: monthly_records
+        scope: per-contract
+        limit: contractual
+        notes: Datavant reports 60M+ records moved overall; per-customer caps are contractual.
+
+  - id: datavant-tokenization
+    name: Datavant Tokenization (CLI)
+    documented: false
+    notes: |
+      The Datavant CLI is run on-premise or in the customer's cloud, so
+      per-request rate limits do not apply at the network edge.
+
+  - id: lokavant-clinical-trial-intelligence
+    name: Lokavant Clinical Trial Intelligence Platform
+    documented: false
+    notes: |
+      Customer-only platform; no public API and no published per-request limits.
+
+  - id: datavant-connect-portal
+    name: Datavant Connect Customer Portal
+    documented: false
+    notes: |
+      Portal access is invite-only; no documented per-request limits.

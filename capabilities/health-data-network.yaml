@@ -1,0 +1,38 @@
+name: Roivant Health Data Network Workflow
+description: |
+  Composed workflow capability stitching Datavant's tokenization, Datavant
+  Connect linkage, Healthjump EHR extraction, and Lokavant trial intelligence
+  into a single Roivant-level pattern: extract clinical data from connected
+  practices, tokenize for privacy, link across third-party datasets, and feed
+  the linked cohort into clinical-trial intelligence workflows.
+created: '2026-05-23'
+
+steps:
+  - id: extract
+    name: Extract EHR Data
+    capability: datavant-healthjump-ehr#list-patients
+    description: Pull standardized patient and encounter records from a connected ambulatory EHR via the Healthjump API.
+
+  - id: tokenize
+    name: Tokenize Patient Identifiers
+    capability: datavant-tokenization
+    description: Run the Datavant CLI to replace direct identifiers with irreversible tokens that allow downstream linkage without exposing PII.
+    access: customer-only
+
+  - id: link
+    name: Link Across Real-World Data Partners
+    capability: datavant-connect-portal
+    description: Match tokenized records against the 350+ real-world data partners and 100% of US payers participating in Datavant Connect.
+    access: customer-only
+
+  - id: enrich-with-rwe
+    name: Enrich with Real-World Evidence
+    capability: aetion-evidence-platform
+    description: Layer the Aetion Evidence Platform on the linked cohort to produce regulatory-grade RWE analyses.
+    access: customer-only
+
+  - id: feed-trial-intelligence
+    name: Feed Clinical-Trial Intelligence
+    capability: lokavant-clinical-trial-intelligence#insight-benchmarking
+    description: Push the linked cohort into Lokavant Insight to benchmark feasibility and performance against the 16,000+ trial corpus.
+    access: customer-only

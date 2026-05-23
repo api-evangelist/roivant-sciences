@@ -1,0 +1,18 @@
+{
+  "hj_import_int": 4421902,
+  "client_id": 1042,
+  "patient_id": "hj-pat-9f30a1c4",
+  "encounter_id": "hj-enc-2b8e7f30",
+  "measurement_date": "2026-04-29T15:10:00Z",
+  "height_cm": 168.0,
+  "weight_kg": 72.4,
+  "bmi": 25.6,
+  "systolic_bp": 122,
+  "diastolic_bp": 78,
+  "heart_rate": 71,
+  "respiratory_rate": 16,
+  "temperature_c": 36.8,
+  "oxygen_saturation": 98.0,
+  "date_created": "2026-04-29T15:10:00Z",
+  "date_modified": "2026-04-29T15:10:00Z"
+}

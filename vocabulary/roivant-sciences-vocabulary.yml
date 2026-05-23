@@ -1,0 +1,96 @@
+name: Roivant Sciences Vocabulary
+description: |
+  Controlled vocabulary covering the Roivant Sciences holding company, its
+  biopharma Vants, and the developer-facing data infrastructure operated by
+  Datavant and Lokavant. Terms are scoped so that drug-discovery and
+  health-data concepts cleanly separate.
+url: https://github.com/api-evangelist/roivant-sciences/vocabulary/roivant-sciences-vocabulary.yml
+created: '2026-05-23'
+modified: '2026-05-23'
+
+dimensions:
+  corporate:
+    description: Holding company structure and operating-unit taxonomy.
+    terms:
+      - name: Holding Company
+        description: Roivant's corporate form — a parent that incubates, funds, and partially owns operating subsidiaries.
+      - name: Vant
+        description: Roivant's name for a focused operating subsidiary (e.g., Immunovant, Datavant, Lokavant).
+      - name: Biopharma Vant
+        description: A Vant whose primary product is a therapeutic asset (Immunovant, Priovant, Covant, Genevant, Pulmovant, PsiThera, Proxima).
+      - name: Tech Vant
+        description: A Vant whose primary product is software, data infrastructure, or a clinical operations platform (Datavant, Lokavant, Zest Health).
+      - name: Divested Vant
+        description: A former Vant transferred or sold (Telavant to Roche 2023; Myovant, Urovant, Enzyvant, Altavant, Spirovant to Sumitomo Dainippon Pharma 2019).
+
+  therapeutic:
+    description: Drug-discovery domain shared across Roivant's biopharma Vants.
+    terms:
+      - name: FcRn Antagonism
+        description: Mechanism shared by Immunovant (anti-FcRn antibodies) and Covant (oral and long-acting injectable FcRn inhibitors).
+      - name: Lipid Nanoparticle Delivery
+        description: Genevant's LNP platform for RNA and gene-editing payloads.
+      - name: Ligand Conjugate
+        description: Genevant's next-generation conjugate technology for siRNA delivery.
+      - name: Targeted Autoimmune Therapy
+        description: Priovant's franchise built on brepocitinib and related selective immune modulators.
+      - name: Proximity Therapeutics
+        description: Proxima's platform for programming protein-protein interactions.
+
+  data:
+    description: Datavant and health-data concepts.
+    terms:
+      - name: Tokenization
+        description: Datavant's privacy-preserving substitution of patient identifiers with irreversible tokens that enable cross-dataset linkage.
+      - name: Patient Linkage
+        description: Resolving records belonging to the same patient across disjoint datasets using tokens.
+      - name: Switchboard
+        description: Datavant's brokered exchange model that lets payers, providers, and life-sciences partners exchange tokenized data.
+      - name: Aetion Evidence Platform
+        description: Real-world-evidence platform acquired by Datavant in 2024, now fronted via the Datavant Connect portal.
+      - name: Real World Data
+        description: Patient-level data captured outside randomized clinical trials, central to Datavant's life-sciences offering.
+      - name: Datavant Connect
+        description: Customer-facing portal that gates Linkage, Privacy, and Retrieval solutions.
+      - name: Datavant CLI
+        description: Cross-platform command-line tool for running tokenization on-premise or in the customer's cloud.
+
+  ehr:
+    description: Electronic-health-record integration concepts used by Healthjump.
+    terms:
+      - name: Healthjump
+        description: Datavant subsidiary providing programmatic extraction from 70+ ambulatory EHR/PM systems.
+      - name: EHR System
+        description: Source clinical record system (Allscripts, Athenahealth, eClinicalWorks, Epic, Greenway Intergy, NextGen, Practice Fusion, etc.).
+      - name: Standardized Data Element
+        description: One of ~300 fields Healthjump normalizes across heterogeneous EHR sources.
+      - name: Delivery Modality
+        description: API, webhook, flat file, or HL7 — the four mechanisms by which Healthjump returns extracted data.
+
+  clinicalTrials:
+    description: Lokavant's clinical-trial-intelligence concepts.
+    terms:
+      - name: Clinical Trial Intelligence
+        description: Lokavant's category — predictive analytics applied to running and planned trials.
+      - name: Oversight
+        description: Lokavant product providing risk-based quality monitoring at study, country, site, and patient levels.
+      - name: Insight
+        description: Lokavant product benchmarking trial performance against 2,000+ harmonized historical trials.
+      - name: Spectrum
+        description: Lokavant's trial forecasting solution (v15 product line).
+      - name: Feasibility AI
+        description: Lokavant's AI-driven trial feasibility solution.
+      - name: Source Connector
+        description: One of 21+ Lokavant connectors ingesting EDC, CTMS, IRT, and other clinical-systems data.
+
+  governance:
+    description: Cross-cutting governance and access concepts.
+    terms:
+      - name: Invite-Only Access
+        description: Distribution model for Datavant Connect, Lokavant, and Datavant Portal — credentials issued by a customer administrator.
+      - name: SAML2 SSO
+        description: Federation protocol Lokavant supports via Amazon Cognito for sponsor and CRO logins.
+      - name: OIDC SSO
+        description: OpenID Connect federation also supported by Lokavant.
+      - name: HIPAA Expert Determination
+        description: De-identification standard Datavant operates under for re-identification-risk assessment.

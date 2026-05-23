@@ -1,0 +1,82 @@
+finOpsFrameworkVersion: '2024'
+focusVersion: '1.0'
+name: Roivant Sciences FinOps Profile
+description: |
+  FinOps profile for Roivant Sciences' developer-facing surfaces. Because
+  Roivant does not publish pricing for Datavant or Lokavant, this profile
+  documents the billing-surface shape and the FOCUS-aligned dimensions a
+  customer would receive from Roivant rather than concrete unit prices.
+url: https://github.com/api-evangelist/roivant-sciences/finops/roivant-sciences-finops.yml
+provider: roivant-sciences
+created: '2026-05-23'
+modified: '2026-05-23'
+
+billableSurfaces:
+  - id: datavant-tokenization-volume
+    name: Datavant Tokenization Volume
+    provider: datavant
+    billingModel: Enterprise contract
+    chargeCategory: Usage
+    pricingUnit: per-record-tokenized
+    pricingCurrency: USD
+    publishedRate: null
+    focusFields:
+      ServiceCategory: Healthcare Data
+      ServiceName: Datavant Tokenization
+      ChargeCategory: Usage
+
+  - id: datavant-connect-platform
+    name: Datavant Connect Platform Subscription
+    provider: datavant
+    billingModel: Enterprise contract
+    chargeCategory: Subscription
+    pricingUnit: per-seat or per-customer
+    pricingCurrency: USD
+    publishedRate: null
+    focusFields:
+      ServiceCategory: Healthcare Data Exchange
+      ServiceName: Datavant Connect
+      ChargeCategory: Commitment
+
+  - id: datavant-healthjump-ehr-records
+    name: Healthjump EHR Records Extracted
+    provider: datavant
+    billingModel: Enterprise contract
+    chargeCategory: Usage
+    pricingUnit: per-record-extracted
+    pricingCurrency: USD
+    publishedRate: null
+    focusFields:
+      ServiceCategory: EHR Integration
+      ServiceName: Healthjump
+      ChargeCategory: Usage
+
+  - id: lokavant-platform-subscription
+    name: Lokavant Platform Subscription
+    provider: lokavant
+    billingModel: Enterprise contract
+    chargeCategory: Subscription
+    pricingUnit: per-trial or per-sponsor
+    pricingCurrency: USD
+    publishedRate: null
+    focusFields:
+      ServiceCategory: Clinical Trial Intelligence
+      ServiceName: Lokavant Platform
+      ChargeCategory: Commitment
+
+costAllocationGuidance:
+  recommendedTags:
+    - tag: Vant
+      values: [Datavant, Lokavant]
+    - tag: Surface
+      values: [Tokenization, Connect, Healthjump, Lokavant]
+    - tag: Workload
+      values: [Linkage, Retrieval, RWE, TrialMonitoring, EHRExtraction]
+    - tag: Environment
+      values: [On-Prem, Customer-Cloud, Datavant-Cloud]
+
+notes: |
+  Concrete unit prices are negotiated contract by contract. To populate
+  publishedRate values, a customer would parse the master service agreement
+  and exhibits issued by Datavant or Lokavant — neither party publishes a
+  rate card.
