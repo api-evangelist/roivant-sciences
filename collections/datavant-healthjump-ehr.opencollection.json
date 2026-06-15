@@ -1,0 +1,611 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Datavant Healthjump EHR Integration API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://api.healthjump.com/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Patients",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Patients",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.healthjump.com/v1/patients",
+            "params": [
+              {
+                "name": "client_id",
+                "value": "",
+                "type": "query",
+                "description": "Healthjump tenant identifier scoping the query to a connected practice."
+              },
+              {
+                "name": "modified_since",
+                "value": "",
+                "type": "query",
+                "description": "ISO-8601 timestamp; return only records modified after this instant."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum records per page (default 100, max 1000)."
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "Opaque pagination cursor returned by the previous page."
+              }
+            ]
+          },
+          "docs": "List Patients"
+        },
+        {
+          "info": {
+            "name": "Get Patient",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.healthjump.com/v1/patients/:patient_id",
+            "params": [
+              {
+                "name": "patient_id",
+                "value": "",
+                "type": "path",
+                "description": "Healthjump patient identifier."
+              }
+            ]
+          },
+          "docs": "Get Patient"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Encounters",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Encounters",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.healthjump.com/v1/encounters",
+            "params": [
+              {
+                "name": "client_id",
+                "value": "",
+                "type": "query",
+                "description": "Healthjump tenant identifier scoping the query to a connected practice."
+              },
+              {
+                "name": "patient_id",
+                "value": "",
+                "type": "query",
+                "description": "Filter by Healthjump patient identifier."
+              },
+              {
+                "name": "modified_since",
+                "value": "",
+                "type": "query",
+                "description": "ISO-8601 timestamp; return only records modified after this instant."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum records per page (default 100, max 1000)."
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "Opaque pagination cursor returned by the previous page."
+              }
+            ]
+          },
+          "docs": "List Encounters"
+        },
+        {
+          "info": {
+            "name": "Get Encounter",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.healthjump.com/v1/encounters/:encounter_id",
+            "params": [
+              {
+                "name": "encounter_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get Encounter"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Vitals",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Vitals",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.healthjump.com/v1/vitals",
+            "params": [
+              {
+                "name": "client_id",
+                "value": "",
+                "type": "query",
+                "description": "Healthjump tenant identifier scoping the query to a connected practice."
+              },
+              {
+                "name": "patient_id",
+                "value": "",
+                "type": "query",
+                "description": "Filter by Healthjump patient identifier."
+              },
+              {
+                "name": "modified_since",
+                "value": "",
+                "type": "query",
+                "description": "ISO-8601 timestamp; return only records modified after this instant."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum records per page (default 100, max 1000)."
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "Opaque pagination cursor returned by the previous page."
+              }
+            ]
+          },
+          "docs": "List Vitals"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Allergies",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Allergies",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.healthjump.com/v1/allergies",
+            "params": [
+              {
+                "name": "client_id",
+                "value": "",
+                "type": "query",
+                "description": "Healthjump tenant identifier scoping the query to a connected practice."
+              },
+              {
+                "name": "patient_id",
+                "value": "",
+                "type": "query",
+                "description": "Filter by Healthjump patient identifier."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum records per page (default 100, max 1000)."
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "Opaque pagination cursor returned by the previous page."
+              }
+            ]
+          },
+          "docs": "List Allergies"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Immunizations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Immunizations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.healthjump.com/v1/immunizations",
+            "params": [
+              {
+                "name": "client_id",
+                "value": "",
+                "type": "query",
+                "description": "Healthjump tenant identifier scoping the query to a connected practice."
+              },
+              {
+                "name": "patient_id",
+                "value": "",
+                "type": "query",
+                "description": "Filter by Healthjump patient identifier."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum records per page (default 100, max 1000)."
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "Opaque pagination cursor returned by the previous page."
+              }
+            ]
+          },
+          "docs": "List Immunizations"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Medications",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Medications",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.healthjump.com/v1/medications",
+            "params": [
+              {
+                "name": "client_id",
+                "value": "",
+                "type": "query",
+                "description": "Healthjump tenant identifier scoping the query to a connected practice."
+              },
+              {
+                "name": "patient_id",
+                "value": "",
+                "type": "query",
+                "description": "Filter by Healthjump patient identifier."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum records per page (default 100, max 1000)."
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "Opaque pagination cursor returned by the previous page."
+              }
+            ]
+          },
+          "docs": "List Medications"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Diagnoses",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Diagnoses",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.healthjump.com/v1/diagnoses",
+            "params": [
+              {
+                "name": "client_id",
+                "value": "",
+                "type": "query",
+                "description": "Healthjump tenant identifier scoping the query to a connected practice."
+              },
+              {
+                "name": "patient_id",
+                "value": "",
+                "type": "query",
+                "description": "Filter by Healthjump patient identifier."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum records per page (default 100, max 1000)."
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "Opaque pagination cursor returned by the previous page."
+              }
+            ]
+          },
+          "docs": "List Diagnoses"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Procedures",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Procedures",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.healthjump.com/v1/procedures",
+            "params": [
+              {
+                "name": "client_id",
+                "value": "",
+                "type": "query",
+                "description": "Healthjump tenant identifier scoping the query to a connected practice."
+              },
+              {
+                "name": "patient_id",
+                "value": "",
+                "type": "query",
+                "description": "Filter by Healthjump patient identifier."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum records per page (default 100, max 1000)."
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "Opaque pagination cursor returned by the previous page."
+              }
+            ]
+          },
+          "docs": "List Procedures"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Labs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Lab Results",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.healthjump.com/v1/labs",
+            "params": [
+              {
+                "name": "client_id",
+                "value": "",
+                "type": "query",
+                "description": "Healthjump tenant identifier scoping the query to a connected practice."
+              },
+              {
+                "name": "patient_id",
+                "value": "",
+                "type": "query",
+                "description": "Filter by Healthjump patient identifier."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum records per page (default 100, max 1000)."
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "Opaque pagination cursor returned by the previous page."
+              }
+            ]
+          },
+          "docs": "List Lab Results"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Documents",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Documents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.healthjump.com/v1/documents",
+            "params": [
+              {
+                "name": "client_id",
+                "value": "",
+                "type": "query",
+                "description": "Healthjump tenant identifier scoping the query to a connected practice."
+              },
+              {
+                "name": "patient_id",
+                "value": "",
+                "type": "query",
+                "description": "Filter by Healthjump patient identifier."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum records per page (default 100, max 1000)."
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "Opaque pagination cursor returned by the previous page."
+              }
+            ]
+          },
+          "docs": "List Documents"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Appointments",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Appointments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.healthjump.com/v1/appointments",
+            "params": [
+              {
+                "name": "client_id",
+                "value": "",
+                "type": "query",
+                "description": "Healthjump tenant identifier scoping the query to a connected practice."
+              },
+              {
+                "name": "patient_id",
+                "value": "",
+                "type": "query",
+                "description": "Filter by Healthjump patient identifier."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum records per page (default 100, max 1000)."
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "Opaque pagination cursor returned by the previous page."
+              }
+            ]
+          },
+          "docs": "List Appointments"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Providers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Providers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.healthjump.com/v1/providers",
+            "params": [
+              {
+                "name": "client_id",
+                "value": "",
+                "type": "query",
+                "description": "Healthjump tenant identifier scoping the query to a connected practice."
+              }
+            ]
+          },
+          "docs": "List Providers"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Practices",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Practices",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.healthjump.com/v1/practices"
+          },
+          "docs": "List Practices"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,1996 @@
+{
+  "item": [
+    {
+      "id": "01219296-315b-4ea6-a45b-3eb901b90e52",
+      "name": "Patients",
+      "description": {
+        "content": "Patient demographics and identifiers.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "086c24f8-b6a5-44e9-ab4d-64bf95bf3b57",
+          "name": "List Patients",
+          "request": {
+            "name": "List Patients",
+            "description": {},
+            "url": {
+              "path": [
+                "patients"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "client_id",
+                  "value": "<integer>",
+                  "description": "Healthjump tenant identifier scoping the query to a connected practice."
+                },
+                {
+                  "disabled": false,
+                  "key": "modified_since",
+                  "value": "<dateTime>",
+                  "description": "ISO-8601 timestamp; return only records modified after this instant."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "100",
+                  "description": "Maximum records per page (default 100, max 1000)."
+                },
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>",
+                  "description": "Opaque pagination cursor returned by the previous page."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ea7b3992-2019-4370-bba2-cbc1a998b3dd",
+              "name": "A page of patient records.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "patients"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "client_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "modified_since",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"hj_import_int\": 1961,\n      \"client_id\": 5476,\n      \"patient_id\": \"string\",\n      \"external_patient_id\": \"string\",\n      \"first_name\": \"string\",\n      \"last_name\": \"string\",\n      \"middle_name\": \"string\",\n      \"date_of_birth\": \"1967-08-15\",\n      \"gender\": \"other\",\n      \"race\": \"string\",\n      \"ethnicity\": \"string\",\n      \"marital_status\": \"string\",\n      \"address_line_1\": \"string\",\n      \"address_line_2\": \"string\",\n      \"city\": \"string\",\n      \"state\": \"string\",\n      \"zip\": \"string\",\n      \"country\": \"string\",\n      \"phone\": \"string\",\n      \"email\": \"W3mUflvR8vY@OSiUopWuojInhAuAyM.iqy\",\n      \"preferred_language\": \"string\",\n      \"date_created\": \"2014-06-15T01:06:56.517Z\",\n      \"date_modified\": \"2007-11-18T21:42:10.579Z\"\n    },\n    {\n      \"hj_import_int\": 7006,\n      \"client_id\": 2159,\n      \"patient_id\": \"string\",\n      \"external_patient_id\": \"string\",\n      \"first_name\": \"string\",\n      \"last_name\": \"string\",\n      \"middle_name\": \"string\",\n      \"date_of_birth\": \"2015-08-16\",\n      \"gender\": \"other\",\n      \"race\": \"string\",\n      \"ethnicity\": \"string\",\n      \"marital_status\": \"string\",\n      \"address_line_1\": \"string\",\n      \"address_line_2\": \"string\",\n      \"city\": \"string\",\n      \"state\": \"string\",\n      \"zip\": \"string\",\n      \"country\": \"string\",\n      \"phone\": \"string\",\n      \"email\": \"x9CH8TgTMGhf-L@SvIuqKfPfbnVhRhsOoYVrLXXNUVJndKMU.yi\",\n      \"preferred_language\": \"string\",\n      \"date_created\": \"2003-06-15T06:44:48.092Z\",\n      \"date_modified\": \"1975-08-18T04:33:33.666Z\"\n    }\n  ],\n  \"next_cursor\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2a1adca9-86fa-4f00-b5ed-00cab1cba5e3",
+              "name": "Missing or invalid bearer token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "patients"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "client_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "modified_since",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "bd9e7adb-0f21-4746-9c1f-79bcadee423b",
+              "name": "Request rate limit exceeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "patients"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "client_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "modified_since",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b650b397-92b6-4578-9fd2-688a86c726b3",
+          "name": "Get Patient",
+          "request": {
+            "name": "Get Patient",
+            "description": {},
+            "url": {
+              "path": [
+                "patients",
+                ":patient_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "patient_id",
+                  "description": "(Required) Healthjump patient identifier."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "24347fd7-a8de-484e-88a4-084209cb33ab",
+              "name": "A patient record.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "patients",
+                    ":patient_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "patient_id",
+                      "description": "(Required) Healthjump patient identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"hj_import_int\": 8354,\n  \"client_id\": 205,\n  \"patient_id\": \"string\",\n  \"external_patient_id\": \"string\",\n  \"first_name\": \"string\",\n  \"last_name\": \"string\",\n  \"middle_name\": \"string\",\n  \"date_of_birth\": \"1997-04-09\",\n  \"gender\": \"other\",\n  \"race\": \"string\",\n  \"ethnicity\": \"string\",\n  \"marital_status\": \"string\",\n  \"address_line_1\": \"string\",\n  \"address_line_2\": \"string\",\n  \"city\": \"string\",\n  \"state\": \"string\",\n  \"zip\": \"string\",\n  \"country\": \"string\",\n  \"phone\": \"string\",\n  \"email\": \"yBqWkM@bXKdKbhJfGGQyMlSayhGeLgZJxcXx.orx\",\n  \"preferred_language\": \"string\",\n  \"date_created\": \"2002-07-05T04:54:27.321Z\",\n  \"date_modified\": \"2018-10-11T21:01:25.185Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9d63ef7e-1185-4b46-91b8-717a178cb10a",
+              "name": "Resource not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "patients",
+                    ":patient_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "patient_id",
+                      "description": "(Required) Healthjump patient identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "d31a8008-802b-4953-94d7-39b9111f3dd9",
+      "name": "Encounters",
+      "description": {
+        "content": "Clinical encounters and visits.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "fb59a136-e581-404e-b503-b99f6aad9e55",
+          "name": "List Encounters",
+          "request": {
+            "name": "List Encounters",
+            "description": {},
+            "url": {
+              "path": [
+                "encounters"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "client_id",
+                  "value": "<integer>",
+                  "description": "Healthjump tenant identifier scoping the query to a connected practice."
+                },
+                {
+                  "disabled": false,
+                  "key": "patient_id",
+                  "value": "<string>",
+                  "description": "Filter by Healthjump patient identifier."
+                },
+                {
+                  "disabled": false,
+                  "key": "modified_since",
+                  "value": "<dateTime>",
+                  "description": "ISO-8601 timestamp; return only records modified after this instant."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "100",
+                  "description": "Maximum records per page (default 100, max 1000)."
+                },
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>",
+                  "description": "Opaque pagination cursor returned by the previous page."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1e48e137-84a8-45ae-99b1-bc01521d449b",
+              "name": "A page of encounter records.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "encounters"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "client_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "patient_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "modified_since",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"hj_import_int\": 7716,\n      \"client_id\": 2600,\n      \"encounter_id\": \"string\",\n      \"patient_id\": \"string\",\n      \"provider_id\": \"string\",\n      \"encounter_type\": \"string\",\n      \"encounter_date\": \"1985-06-29T17:51:28.282Z\",\n      \"reason_for_visit\": \"string\",\n      \"location\": \"string\",\n      \"status\": \"string\",\n      \"date_created\": \"2023-11-25T01:00:33.841Z\",\n      \"date_modified\": \"2011-06-05T17:39:31.780Z\"\n    },\n    {\n      \"hj_import_int\": 8909,\n      \"client_id\": 6983,\n      \"encounter_id\": \"string\",\n      \"patient_id\": \"string\",\n      \"provider_id\": \"string\",\n      \"encounter_type\": \"string\",\n      \"encounter_date\": \"1960-10-03T19:47:48.383Z\",\n      \"reason_for_visit\": \"string\",\n      \"location\": \"string\",\n      \"status\": \"string\",\n      \"date_created\": \"1971-08-10T18:28:01.156Z\",\n      \"date_modified\": \"1961-08-30T13:35:20.748Z\"\n    }\n  ],\n  \"next_cursor\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8eb5bba7-1f64-415b-8a67-24fd37d03c36",
+          "name": "Get Encounter",
+          "request": {
+            "name": "Get Encounter",
+            "description": {},
+            "url": {
+              "path": [
+                "encounters",
+                ":encounter_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "encounter_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c5bb807b-7a10-423f-88d8-c9c687419201",
+              "name": "An encounter record.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "encounters",
+                    ":encounter_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "encounter_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"hj_import_int\": 4244,\n  \"client_id\": 8879,\n  \"encounter_id\": \"string\",\n  \"patient_id\": \"string\",\n  \"provider_id\": \"string\",\n  \"encounter_type\": \"string\",\n  \"encounter_date\": \"1962-06-26T09:00:58.402Z\",\n  \"reason_for_visit\": \"string\",\n  \"location\": \"string\",\n  \"status\": \"string\",\n  \"date_created\": \"1992-07-14T16:10:49.441Z\",\n  \"date_modified\": \"1956-05-18T12:26:53.855Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "e6dcfbf3-4f03-491f-a4d2-aeefd5cf66db",
+      "name": "Vitals",
+      "description": {
+        "content": "Vital signs measurements.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3a235400-78ee-428d-9372-4be1c68a53a3",
+          "name": "List Vitals",
+          "request": {
+            "name": "List Vitals",
+            "description": {},
+            "url": {
+              "path": [
+                "vitals"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "client_id",
+                  "value": "<integer>",
+                  "description": "Healthjump tenant identifier scoping the query to a connected practice."
+                },
+                {
+                  "disabled": false,
+                  "key": "patient_id",
+                  "value": "<string>",
+                  "description": "Filter by Healthjump patient identifier."
+                },
+                {
+                  "disabled": false,
+                  "key": "modified_since",
+                  "value": "<dateTime>",
+                  "description": "ISO-8601 timestamp; return only records modified after this instant."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "100",
+                  "description": "Maximum records per page (default 100, max 1000)."
+                },
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>",
+                  "description": "Opaque pagination cursor returned by the previous page."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "84d7eaae-2d5c-45b0-b7b9-b1326006aa3a",
+              "name": "A page of vitals records.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vitals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "client_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "patient_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "modified_since",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"hj_import_int\": 5714,\n      \"client_id\": 5448,\n      \"patient_id\": \"string\",\n      \"encounter_id\": \"string\",\n      \"measurement_date\": \"2006-09-08T01:05:39.502Z\",\n      \"height_cm\": 1093.8540456031142,\n      \"weight_kg\": 6274.57503200322,\n      \"bmi\": 9905.821678901028,\n      \"systolic_bp\": 9607,\n      \"diastolic_bp\": 8631,\n      \"heart_rate\": 1067,\n      \"respiratory_rate\": 9875,\n      \"temperature_c\": 7351.695839099743,\n      \"oxygen_saturation\": 8350.860132297756,\n      \"date_created\": \"1980-07-25T22:12:18.106Z\",\n      \"date_modified\": \"1978-10-14T02:52:33.620Z\"\n    },\n    {\n      \"hj_import_int\": 2920,\n      \"client_id\": 9751,\n      \"patient_id\": \"string\",\n      \"encounter_id\": \"string\",\n      \"measurement_date\": \"2009-01-14T18:57:37.122Z\",\n      \"height_cm\": 6205.003066857407,\n      \"weight_kg\": 5760.88344732098,\n      \"bmi\": 7392.331949888614,\n      \"systolic_bp\": 3957,\n      \"diastolic_bp\": 1467,\n      \"heart_rate\": 5486,\n      \"respiratory_rate\": 5225,\n      \"temperature_c\": 3575.026543477784,\n      \"oxygen_saturation\": 656.263479072936,\n      \"date_created\": \"1954-01-28T15:25:23.399Z\",\n      \"date_modified\": \"2017-07-03T04:32:59.258Z\"\n    }\n  ],\n  \"next_cursor\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "c0e1b896-914c-4692-977d-8d5b0e481a09",
+      "name": "Allergies",
+      "description": {
+        "content": "Recorded patient allergies.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "11d0dd4f-0930-40fa-958e-91cef4606d25",
+          "name": "List Allergies",
+          "request": {
+            "name": "List Allergies",
+            "description": {},
+            "url": {
+              "path": [
+                "allergies"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "client_id",
+                  "value": "<integer>",
+                  "description": "Healthjump tenant identifier scoping the query to a connected practice."
+                },
+                {
+                  "disabled": false,
+                  "key": "patient_id",
+                  "value": "<string>",
+                  "description": "Filter by Healthjump patient identifier."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "100",
+                  "description": "Maximum records per page (default 100, max 1000)."
+                },
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>",
+                  "description": "Opaque pagination cursor returned by the previous page."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4196182b-cfab-4849-afae-61c38ead2590",
+              "name": "Allergy records for the patient cohort.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "allergies"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "client_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "patient_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"client_id\": 8945,\n    \"patient_id\": \"string\",\n    \"allergy_id\": \"string\",\n    \"allergen\": \"string\",\n    \"reaction\": \"string\",\n    \"severity\": \"string\",\n    \"onset_date\": \"2002-10-10\",\n    \"status\": \"string\"\n  },\n  {\n    \"client_id\": 4613,\n    \"patient_id\": \"string\",\n    \"allergy_id\": \"string\",\n    \"allergen\": \"string\",\n    \"reaction\": \"string\",\n    \"severity\": \"string\",\n    \"onset_date\": \"2000-03-23\",\n    \"status\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "e5eff794-1c63-4610-b651-faf7224c0439",
+      "name": "Immunizations",
+      "description": {
+        "content": "Immunization history.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b449e223-c332-40ae-a34b-b20fdd487d54",
+          "name": "List Immunizations",
+          "request": {
+            "name": "List Immunizations",
+            "description": {},
+            "url": {
+              "path": [
+                "immunizations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "client_id",
+                  "value": "<integer>",
+                  "description": "Healthjump tenant identifier scoping the query to a connected practice."
+                },
+                {
+                  "disabled": false,
+                  "key": "patient_id",
+                  "value": "<string>",
+                  "description": "Filter by Healthjump patient identifier."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "100",
+                  "description": "Maximum records per page (default 100, max 1000)."
+                },
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>",
+                  "description": "Opaque pagination cursor returned by the previous page."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "79e53154-e6b3-4967-96e1-c2f4d55553fe",
+              "name": "Immunization records.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "immunizations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "client_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "patient_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"client_id\": 8813,\n    \"patient_id\": \"string\",\n    \"immunization_id\": \"string\",\n    \"vaccine\": \"string\",\n    \"cvx_code\": \"string\",\n    \"administered_date\": \"2003-04-01\",\n    \"dose_number\": 9684,\n    \"administered_by\": \"string\"\n  },\n  {\n    \"client_id\": 9911,\n    \"patient_id\": \"string\",\n    \"immunization_id\": \"string\",\n    \"vaccine\": \"string\",\n    \"cvx_code\": \"string\",\n    \"administered_date\": \"1964-04-13\",\n    \"dose_number\": 1775,\n    \"administered_by\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "ad21d08a-f1b0-4a7f-8fe0-5079b192f60d",
+      "name": "Medications",
+      "description": {
+        "content": "Prescribed and administered medications.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7adb961b-69a9-4f8b-a21c-c2c6d4286738",
+          "name": "List Medications",
+          "request": {
+            "name": "List Medications",
+            "description": {},
+            "url": {
+              "path": [
+                "medications"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "client_id",
+                  "value": "<integer>",
+                  "description": "Healthjump tenant identifier scoping the query to a connected practice."
+                },
+                {
+                  "disabled": false,
+                  "key": "patient_id",
+                  "value": "<string>",
+                  "description": "Filter by Healthjump patient identifier."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "100",
+                  "description": "Maximum records per page (default 100, max 1000)."
+                },
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>",
+                  "description": "Opaque pagination cursor returned by the previous page."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "039ba2e1-b1b5-4f55-85f2-dcc931852493",
+              "name": "Medication records.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "medications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "client_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "patient_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"client_id\": 7950,\n    \"patient_id\": \"string\",\n    \"medication_id\": \"string\",\n    \"ndc_code\": \"string\",\n    \"rxnorm_code\": \"string\",\n    \"medication_name\": \"string\",\n    \"dosage\": \"string\",\n    \"route\": \"string\",\n    \"frequency\": \"string\",\n    \"start_date\": \"1947-02-07\",\n    \"end_date\": \"2012-08-07\",\n    \"prescriber_id\": \"string\",\n    \"status\": \"string\"\n  },\n  {\n    \"client_id\": 9341,\n    \"patient_id\": \"string\",\n    \"medication_id\": \"string\",\n    \"ndc_code\": \"string\",\n    \"rxnorm_code\": \"string\",\n    \"medication_name\": \"string\",\n    \"dosage\": \"string\",\n    \"route\": \"string\",\n    \"frequency\": \"string\",\n    \"start_date\": \"2015-04-30\",\n    \"end_date\": \"2000-12-31\",\n    \"prescriber_id\": \"string\",\n    \"status\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "5b0d08b6-780f-4829-81fa-2e2440f2a487",
+      "name": "Diagnoses",
+      "description": {
+        "content": "Clinical diagnoses and problem list.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e2068370-2e42-4dcb-a0f5-7724b89f58c3",
+          "name": "List Diagnoses",
+          "request": {
+            "name": "List Diagnoses",
+            "description": {},
+            "url": {
+              "path": [
+                "diagnoses"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "client_id",
+                  "value": "<integer>",
+                  "description": "Healthjump tenant identifier scoping the query to a connected practice."
+                },
+                {
+                  "disabled": false,
+                  "key": "patient_id",
+                  "value": "<string>",
+                  "description": "Filter by Healthjump patient identifier."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "100",
+                  "description": "Maximum records per page (default 100, max 1000)."
+                },
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>",
+                  "description": "Opaque pagination cursor returned by the previous page."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b9a574eb-d29b-45eb-a5a7-a5167e44262c",
+              "name": "Diagnosis records (ICD-10 coded).",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "diagnoses"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "client_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "patient_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"client_id\": 2535,\n    \"patient_id\": \"string\",\n    \"encounter_id\": \"string\",\n    \"diagnosis_id\": \"string\",\n    \"icd10_code\": \"string\",\n    \"description\": \"string\",\n    \"diagnosis_date\": \"1970-07-02\",\n    \"status\": \"string\"\n  },\n  {\n    \"client_id\": 5615,\n    \"patient_id\": \"string\",\n    \"encounter_id\": \"string\",\n    \"diagnosis_id\": \"string\",\n    \"icd10_code\": \"string\",\n    \"description\": \"string\",\n    \"diagnosis_date\": \"2021-03-07\",\n    \"status\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "174ab923-96e6-4931-83de-df1153a5cb4d",
+      "name": "Procedures",
+      "description": {
+        "content": "Procedures performed.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d866d19a-b8a3-4d1f-8ea6-c6b3f043befd",
+          "name": "List Procedures",
+          "request": {
+            "name": "List Procedures",
+            "description": {},
+            "url": {
+              "path": [
+                "procedures"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "client_id",
+                  "value": "<integer>",
+                  "description": "Healthjump tenant identifier scoping the query to a connected practice."
+                },
+                {
+                  "disabled": false,
+                  "key": "patient_id",
+                  "value": "<string>",
+                  "description": "Filter by Healthjump patient identifier."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "100",
+                  "description": "Maximum records per page (default 100, max 1000)."
+                },
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>",
+                  "description": "Opaque pagination cursor returned by the previous page."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f3b0a4d8-c973-436d-a683-8f992f6c2a29",
+              "name": "Procedure records (CPT/HCPCS coded).",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "procedures"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "client_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "patient_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"client_id\": 2843,\n    \"patient_id\": \"string\",\n    \"encounter_id\": \"string\",\n    \"procedure_id\": \"string\",\n    \"cpt_code\": \"string\",\n    \"hcpcs_code\": \"string\",\n    \"description\": \"string\",\n    \"procedure_date\": \"1994-01-08\",\n    \"provider_id\": \"string\"\n  },\n  {\n    \"client_id\": 8061,\n    \"patient_id\": \"string\",\n    \"encounter_id\": \"string\",\n    \"procedure_id\": \"string\",\n    \"cpt_code\": \"string\",\n    \"hcpcs_code\": \"string\",\n    \"description\": \"string\",\n    \"procedure_date\": \"1978-08-26\",\n    \"provider_id\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "109638b8-20b2-4d60-9e49-55a55e4383b8",
+      "name": "Labs",
+      "description": {
+        "content": "Laboratory orders and results.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9895e089-79ce-4502-9a5b-421968bb2f55",
+          "name": "List Lab Results",
+          "request": {
+            "name": "List Lab Results",
+            "description": {},
+            "url": {
+              "path": [
+                "labs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "client_id",
+                  "value": "<integer>",
+                  "description": "Healthjump tenant identifier scoping the query to a connected practice."
+                },
+                {
+                  "disabled": false,
+                  "key": "patient_id",
+                  "value": "<string>",
+                  "description": "Filter by Healthjump patient identifier."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "100",
+                  "description": "Maximum records per page (default 100, max 1000)."
+                },
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>",
+                  "description": "Opaque pagination cursor returned by the previous page."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5a7d52e8-8c94-499a-9d7e-62773f5c349b",
+              "name": "Laboratory result records (LOINC coded).",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "labs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "client_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "patient_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"client_id\": 2517,\n    \"patient_id\": \"string\",\n    \"encounter_id\": \"string\",\n    \"lab_id\": \"string\",\n    \"loinc_code\": \"string\",\n    \"test_name\": \"string\",\n    \"result_value\": \"string\",\n    \"result_units\": \"string\",\n    \"reference_range\": \"string\",\n    \"abnormal_flag\": \"string\",\n    \"result_date\": \"1953-07-13T20:38:33.412Z\"\n  },\n  {\n    \"client_id\": 4104,\n    \"patient_id\": \"string\",\n    \"encounter_id\": \"string\",\n    \"lab_id\": \"string\",\n    \"loinc_code\": \"string\",\n    \"test_name\": \"string\",\n    \"result_value\": \"string\",\n    \"result_units\": \"string\",\n    \"reference_range\": \"string\",\n    \"abnormal_flag\": \"string\",\n    \"result_date\": \"1950-12-25T18:53:57.249Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "0723b9d2-55e0-47e3-8f44-7baea43cd098",
+      "name": "Documents",
+      "description": {
+        "content": "Unstructured clinical notes and document extraction.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "075f12d2-be60-4fdd-a451-8dc669ffd6ec",
+          "name": "List Documents",
+          "request": {
+            "name": "List Documents",
+            "description": {},
+            "url": {
+              "path": [
+                "documents"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "client_id",
+                  "value": "<integer>",
+                  "description": "Healthjump tenant identifier scoping the query to a connected practice."
+                },
+                {
+                  "disabled": false,
+                  "key": "patient_id",
+                  "value": "<string>",
+                  "description": "Filter by Healthjump patient identifier."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "100",
+                  "description": "Maximum records per page (default 100, max 1000)."
+                },
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>",
+                  "description": "Opaque pagination cursor returned by the previous page."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8a911926-ed7c-4854-9a7b-676f5926b869",
+              "name": "Unstructured document references for optional extraction.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "documents"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "client_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "patient_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"client_id\": 3503,\n    \"patient_id\": \"string\",\n    \"encounter_id\": \"string\",\n    \"document_id\": \"string\",\n    \"document_type\": \"string\",\n    \"mime_type\": \"string\",\n    \"content_url\": \"http://fOLgEztyWZepPNdsrOTAkdMsiTx.rrW069eUofhfROlaxjk1j\",\n    \"document_date\": \"1987-01-12T08:22:22.888Z\"\n  },\n  {\n    \"client_id\": 32,\n    \"patient_id\": \"string\",\n    \"encounter_id\": \"string\",\n    \"document_id\": \"string\",\n    \"document_type\": \"string\",\n    \"mime_type\": \"string\",\n    \"content_url\": \"https://KeRQiTnmhJToczATLhUhgsvKXurPNrt.fdpCyY2Joa9Q8JiffT3qdc+w3dOIvJwp510yVTOWVjSMQ\",\n    \"document_date\": \"2018-01-07T21:26:13.618Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "c3d22ab6-b020-4219-a90c-0b87a7d5bd78",
+      "name": "Appointments",
+      "description": {
+        "content": "Appointment and scheduling data.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e9323d17-b053-40d5-821f-e695dc53e7c7",
+          "name": "List Appointments",
+          "request": {
+            "name": "List Appointments",
+            "description": {},
+            "url": {
+              "path": [
+                "appointments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "client_id",
+                  "value": "<integer>",
+                  "description": "Healthjump tenant identifier scoping the query to a connected practice."
+                },
+                {
+                  "disabled": false,
+                  "key": "patient_id",
+                  "value": "<string>",
+                  "description": "Filter by Healthjump patient identifier."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "100",
+                  "description": "Maximum records per page (default 100, max 1000)."
+                },
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>",
+                  "description": "Opaque pagination cursor returned by the previous page."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "00200ae8-54da-4ce0-85eb-8aa4d7e5de56",
+              "name": "Appointment records.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "appointments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "client_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "patient_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"client_id\": 2734,\n    \"patient_id\": \"string\",\n    \"appointment_id\": \"string\",\n    \"provider_id\": \"string\",\n    \"appointment_date\": \"1996-08-07T15:44:31.268Z\",\n    \"appointment_type\": \"string\",\n    \"status\": \"string\",\n    \"location\": \"string\"\n  },\n  {\n    \"client_id\": 4485,\n    \"patient_id\": \"string\",\n    \"appointment_id\": \"string\",\n    \"provider_id\": \"string\",\n    \"appointment_date\": \"1991-11-26T08:18:32.239Z\",\n    \"appointment_type\": \"string\",\n    \"status\": \"string\",\n    \"location\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "3a72d429-11c5-43b7-9213-69f78be1b08e",
+      "name": "Providers",
+      "description": {
+        "content": "Provider directory and identifiers.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "cf22d583-d07b-4e53-a961-77c9cda61b42",
+          "name": "List Providers",
+          "request": {
+            "name": "List Providers",
+            "description": {},
+            "url": {
+              "path": [
+                "providers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "client_id",
+                  "value": "<integer>",
+                  "description": "Healthjump tenant identifier scoping the query to a connected practice."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d1d82140-a8a2-4548-9f5c-fa9b3282775b",
+              "name": "Provider directory for the connected practice.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "providers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "client_id",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"client_id\": 6375,\n    \"provider_id\": \"string\",\n    \"npi\": \"string\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\",\n    \"specialty\": \"string\",\n    \"practice_id\": \"string\"\n  },\n  {\n    \"client_id\": 9758,\n    \"provider_id\": \"string\",\n    \"npi\": \"string\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\",\n    \"specialty\": \"string\",\n    \"practice_id\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "e28d418c-d563-4211-8882-91a9ae608635",
+      "name": "Practices",
+      "description": {
+        "content": "Connected EHR practice metadata.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2f42b1fa-84d3-4fec-b598-49b57a59c80f",
+          "name": "List Practices",
+          "request": {
+            "name": "List Practices",
+            "description": {},
+            "url": {
+              "path": [
+                "practices"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "735b26c4-7f32-492b-a591-d9fa2a66e419",
+              "name": "Connected practices and their EHR system metadata.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "practices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"client_id\": 4805,\n    \"practice_id\": \"string\",\n    \"practice_name\": \"string\",\n    \"ehr_system\": \"string\",\n    \"last_sync\": \"1991-05-08T22:58:51.712Z\"\n  },\n  {\n    \"client_id\": 3591,\n    \"practice_id\": \"string\",\n    \"practice_name\": \"string\",\n    \"ehr_system\": \"string\",\n    \"last_sync\": \"1998-08-24T05:08:14.433Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.healthjump.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "read:patients read:clinical read:financial"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://api.healthjump.com/oauth/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "b77c46ce-9af9-4ca6-9f63-381eb44ad373",
+    "name": "Datavant Healthjump EHR Integration API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Reconstructed OpenAPI sketch of the Datavant Healthjump EHR Integration API\nsurface, modeled from the public Datavant product page\n(https://www.datavant.com/products/ehr-integrations), the Healthjump landing\npage (https://api.healthjump.com), and the public Healthjump Support knowledge\nbase (https://support.healthjump.com), which documents standardized data\nelements across 70+ ambulatory EHR/PM systems including Allscripts,\nAthenahealth, Aprima, Centricity, eClinicalWorks, Elation Health, Epic,\nGreenway (Intergy / PrimeSUITE), MacPractice, MEDITECH, NextGen, Practice\nFusion, and others. The API exposes ~300 standardized clinical and financial\ndata elements per Datavant's claim. This is a profiling artifact for API\nEvangelist research; consult apidocs.healthjump.com for the authoritative\ncontract.\n\n\nContact Support:\n Name: Datavant Support",
+      "type": "text/plain"
+    }
+  }
+}

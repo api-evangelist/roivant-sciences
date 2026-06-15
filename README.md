@@ -1,125 +1,204 @@
-# Roivant Sciences
+# Roivant Sciences (roivant-sciences)
 
-Roivant Sciences (Nasdaq: **ROIV**) is a New York-headquartered biotech holding
-company founded by Vivek Ramaswamy in 2014 and now led by CEO **Matt Gline**.
-Roivant builds focused operating subsidiaries called **Vants** that span
-drug discovery, drug delivery, virtual care, and health-data infrastructure.
+Roivant Sciences (Nasdaq: ROIV) is a holding company that builds focused subsidiary
+biotech and health-tech operating units called "Vants." Founded by Vivek Ramaswamy
+in 2014 and now led by CEO Matt Gline, Roivant has launched companies across
+immunology (Immunovant, Priovant, Covant, PsiThera), pulmonology (Pulmovant),
+delivery technology (Genevant, Proxima), virtual care (Zest Health), and
+health-data infrastructure (Datavant, Lokavant). Roivant's most material technology
+surface is operated by Datavant — the US health-data exchange and tokenization
+network it co-founded — which connects 80,000+ hospitals and clinics, links data
+for 100% of US payers, and operates a public EHR data-extraction API under the
+Healthjump brand. Lokavant operates a customer-only Clinical Trial Intelligence
+Platform on AWS. The drug-discovery Vants (Immunovant, Priovant, Genevant, etc.)
+do not expose developer APIs.
 
-This repository is the API Evangelist profile of Roivant's API surface area.
-The drug-discovery Vants do not expose developer APIs; the material technology
-surface is operated by **Datavant** (US health-data exchange and tokenization
-network) and **Lokavant** (clinical-trial intelligence platform).
+**APIs.json:** [https://github.com/api-evangelist/roivant-sciences](https://github.com/api-evangelist/roivant-sciences)
 
-> "Reinventing the discovery, development, and commercialization of new medicines."
-> — Roivant.com
+## Scope
 
-## Vant landscape
+- **Type:** Index
+- **Access:** 3rd-Party
 
-### Biopharma Vants (no developer APIs)
-- **[Immunovant](https://www.immunovant.com)** — anti-FcRn antibodies for autoimmune disease
-- **[Priovant](https://www.priovanttx.com)** — targeted autoimmune therapies (brepocitinib franchise)
-- **[Covant](https://www.covanttx.com)** — oral and long-acting injectable FcRn inhibitors
-- **[Genevant](https://www.genevant.com)** — LNP and ligand-conjugate delivery for RNA/gene editing (700+ patents)
-- **[Pulmovant](https://www.pulmovant.com)** — inhaled pulmonary therapeutics (mosliciguat)
-- **[PsiThera](https://psithera.com)** — oral small-molecule immunology (sTNFα, TL1A)
-- **[Proxima](https://proximabio.com)** — proximity therapeutics platform
-- **[Zest Health](https://www.zesthealth.com)** — virtual dermatology clinic (psoriasis, eczema)
+## Tags
 
-### Tech / Data Vants (this profile's focus)
-- **[Datavant](https://www.datavant.com)** — US health-data exchange, tokenization, EHR integration; acquired Ciox (2021) and Aetion (2024)
-- **[Lokavant](https://www.lokavant.com)** — clinical-trial intelligence platform for sponsors and CROs
+- Biotech
+- Pharmaceutical
+- Drug Development
+- Clinical Trials
+- Health Data
+- Tokenization
+- Electronic Health Records
+- Real World Evidence
+- Holding Company
+- Healthcare
 
-### Divested
-- **Telavant** sold to Roche for $7.1B upfront + $150M milestone (Dec 2023)
-- **Myovant, Urovant, Enzyvant, Altavant, Spirovant** transferred to Sumitomo Dainippon Pharma in the Dec 2019 Sumitovant Biopharma transaction
+## Timestamps
 
-## Documented APIs
+- **Created:** 2026-05-23
+- **Modified:** 2026-05-23
 
-| API | Status | Auth | Public docs |
-|---|---|---|---|
-| [Datavant Healthjump EHR Integration API](openapi/datavant-healthjump-ehr-openapi.yml) | Production | OAuth2 client credentials | [apidocs.healthjump.com](https://apidocs.healthjump.com) |
-| Datavant Tokenization (CLI) | Production | On-prem / customer cloud | [Tokenization User Guide (PDF)](https://datavant-aws-marketplace-files.s3.amazonaws.com/tokenization_user_guide.pdf) |
-| Lokavant Clinical Trial Intelligence Platform | Customer-only | Cognito + SAML2/OIDC SSO | [AWS case study](https://aws.amazon.com/startups/learn/lokavant-a-paradigm-shift-in-clinical-trial-intelligence-through-aws-partnership) |
-| Datavant Connect Customer Portal | Customer-only | Portal-admin invite | [portal.datavant.com](https://portal.datavant.com) |
+## APIs
 
-### Datavant scale
-- 60+ million healthcare records moved
-- 80,000+ hospitals and clinics connected
-- 75% of the top 100 largest US health systems
-- 100% of US payers reached (direct or via health systems)
-- 350+ real-world data partners
-- 20 of top 20 life-sciences companies
-- 70+ ambulatory EHR/PM systems connected via Healthjump (Allscripts, Athenahealth, Aprima, Centricity, eClinicalWorks, Elation Health, Epic, Greenway Intergy / PrimeSUITE, MEDITECH, NextGen, Practice Fusion, MacPractice, etc.)
-- ~300 standardized clinical and financial data elements
+### Datavant Healthjump EHR Integration API
 
-### Lokavant scale
-- 21+ source connectors into the Clinical Data Hub
-- 2,000+ harmonized prior trials in the proprietary repository
-- 14,000+ third-party trials referenced
-- Architecture: Amazon Cognito SSO (SAML2/OIDC), API Gateway + Lambda, ECS/Fargate microservices, Snowflake data marts, AWS Managed Apache Airflow ingestion, CloudFront global distribution
-- Products: **Oversight** (risk-based monitoring), **Insight** (benchmarking), **Spectrum v15** (forecasting), **Feasibility AI**, **Medical Monitoring**
+Public REST API operated by Datavant (via the acquired Healthjump platform) for
+extracting clinical and financial data from 70+ on-premise and cloud-hosted
+ambulatory EHR/PM systems. Datavant standardizes 300+ data elements across the
+connected systems and delivers them via API, webhooks, flat file, or HL7. The
+API surface is published at apidocs.healthjump.com and serves customers building
+patient engagement, quality reporting, and population-health products on top of
+ambulatory EHR data.
 
-## Repository layout
+- **Human URL:** [https://www.datavant.com/products/ehr-integrations](https://www.datavant.com/products/ehr-integrations)
+- **Base URL:** `https://api.healthjump.com`
 
-```
-roivant-sciences/
-├── apis.yml                              # APIs.yml index of all surfaces
-├── README.md                             # This file
-├── openapi/
-│   └── datavant-healthjump-ehr-openapi.yml
-├── json-schema/
-│   ├── datavant-healthjump-patient-schema.json
-│   ├── datavant-healthjump-encounter-schema.json
-│   └── datavant-healthjump-vitals-schema.json
-├── json-structure/
-│   └── datavant-healthjump-structure.json
-├── json-ld/
-│   └── roivant-sciences-context.jsonld
-├── examples/
-│   ├── datavant-healthjump-patient-example.json
-│   ├── datavant-healthjump-encounter-example.json
-│   └── datavant-healthjump-vitals-example.json
-├── rules/
-│   └── datavant-healthjump-rules.yml      # Spectral ruleset
-├── capabilities/
-│   ├── health-data-network.yaml           # Composed workflow
-│   └── shared/
-│       ├── datavant-healthjump-ehr.yaml
-│       └── lokavant-clinical-trial-intelligence.yaml
-├── vocabulary/
-│   └── roivant-sciences-vocabulary.yml
-├── plans/
-│   └── roivant-sciences-plans-pricing.yml
-├── rate-limits/
-│   └── roivant-sciences-rate-limits.yml
-└── finops/
-    └── roivant-sciences-finops.yml
-```
+#### Tags
 
-## Notable absences
+- Electronic Health Records
+- Health Data
+- Integration
+- EHR
+- Interoperability
+- Datavant
+- Healthjump
 
-- **No public OpenAPI / Swagger / Postman exports.** The Healthjump API exists at `apidocs.healthjump.com` but its content is gated behind navigation that 404s to crawlers; the OpenAPI in this repo is a reconstructed sketch from the Datavant product page and the public Healthjump support knowledge base.
-- **No public GitHub repos for Datavant** (org exists with 119 followers, zero public repos). **No public GitHub org for Roivant, Lokavant, Immunovant, Genevant, Priovant, Covant, Pulmovant, PsiThera, Proxima.** The GitHub org named `roivant` belongs to Sumitovant Digital Innovation and is dormant.
-- **No public pricing** for Datavant or Lokavant — both are enterprise-sales motions.
-- **No public rate-limit documentation** for the Healthjump API.
-- **No status page for Healthjump or Lokavant** — only `status.datavant.com` covers two components (Portal, Datavant CLI).
-- **No SDKs** advertised by Datavant or Lokavant beyond the Datavant CLI / Datavant Desktop GUI.
+#### Properties
 
-## Sources
+- [Documentation](https://apidocs.healthjump.com)
+- [API Reference](https://apidocs.healthjump.com)
+- [Getting Started](https://api.healthjump.com)
+- [Developer Portal](https://apidocs.healthjump.com)
+- [Portal](https://portal.datavant.com)
+- [Support](https://support.healthjump.com)
+- [Integrations](https://www.datavant.com/products/ehr-integrations)
+- [Status Page](https://status.datavant.com)
+- [OpenAPI](openapi/datavant-healthjump-ehr-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [Postman Collection](collections/datavant-healthjump-ehr.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/datavant-healthjump-ehr.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [JSON Schema](json-schema/datavant-healthjump-patient-schema.json) — [JSON Schema](https://json-schema.org/specification)
+- [JSON Schema](json-schema/datavant-healthjump-encounter-schema.json) — [JSON Schema](https://json-schema.org/specification)
+- [JSON Schema](json-schema/datavant-healthjump-vitals-schema.json) — [JSON Schema](https://json-schema.org/specification)
+- [Spectral Rules](rules/datavant-healthjump-rules.yml) — [Spectral](https://docs.stoplight.io/docs/spectral)
 
-- https://roivant.com
-- https://www.roivant.com/companies
-- https://en.wikipedia.org/wiki/Roivant_Sciences
-- https://www.datavant.com
-- https://www.datavant.com/about
-- https://www.datavant.com/products/ehr-integrations
-- https://www.datavant.com/solutions/health-data-extraction
-- https://www.datavant.com/electronic-health-records/the-story-of-healthjump
-- https://apidocs.healthjump.com
-- https://api.healthjump.com
-- https://support.healthjump.com
-- https://portal.datavant.com
-- https://status.datavant.com
-- https://www.lokavant.com
-- https://aws.amazon.com/startups/learn/lokavant-a-paradigm-shift-in-clinical-trial-intelligence-through-aws-partnership
-- https://github.com/datavant
+### Datavant Tokenization (Datavant Connect)
+
+Datavant's privacy-preserving tokenization technology lets organizations link
+patient records across datasets without exchanging personally identifiable
+information. It is delivered as a downloadable Datavant CLI (Mac/Windows/Linux)
+plus a Datavant Desktop GUI, runnable on-premise or in the customer's cloud
+environment, with companion documentation in the Datavant Help Center. The
+tokenization layer powers the broader Datavant Connect platform (Linkage
+Solutions, Privacy Solutions, Retrieval Solutions) and the Switchboard-style
+data ecosystem that brokers exchange across payers, providers, and 350+
+real-world data partners.
+
+- **Human URL:** [https://www.datavant.com/products/connect-linkage](https://www.datavant.com/products/connect-linkage)
+- **Base URL:** `https://portal.datavant.com`
+
+#### Tags
+
+- Tokenization
+- Privacy
+- Patient Linkage
+- Health Data
+- Real World Data
+- Datavant
+- CLI
+
+#### Properties
+
+- [Documentation](https://datavant-aws-marketplace-files.s3.amazonaws.com/tokenization_user_guide.pdf)
+- [C L I](https://portal.datavant.com)
+- [Portal](https://portal.datavant.com)
+- [Status Page](https://status.datavant.com)
+- [Marketplace](https://www.datavant.com/partnerships/cloud-integrations)
+- [White Paper](https://www.datavant.com/white-papers/datavant-connect-overview-tokenization-technology-structured-data)
+- [Postman Collection](collections/datavant-healthjump-ehr.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/datavant-healthjump-ehr.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+
+### Lokavant Clinical Trial Intelligence Platform
+
+Lokavant is Roivant's clinical-trial intelligence operating unit. Its platform
+ingests data via 21+ source connectors and a proprietary repository of 2,000+
+harmonized prior trials plus 14,000+ third-party trials, surfacing predictive
+analytics for sponsors and CROs through two named products: Oversight
+(risk-based quality management at study/country/site/patient level) and Insight
+(performance benchmarking against the historical trial corpus). The platform
+runs on AWS — Amazon Cognito for authentication with customer SAML2/OIDC SSO,
+API Gateway + Lambda for composite services, ECS/Fargate microservices,
+Snowflake data marts, and Apache Airflow for ingestion. Access is invite-only
+for sponsor/CRO customers; there is no public developer portal or OpenAPI spec.
+
+- **Human URL:** [https://www.lokavant.com](https://www.lokavant.com)
+- **Base URL:** `https://www.lokavant.com`
+
+#### Tags
+
+- Clinical Trials
+- Clinical Trial Intelligence
+- Predictive Analytics
+- Risk-Based Monitoring
+- Trial Forecasting
+- Lokavant
+- Customer Only
+
+#### Properties
+
+- [Portal](https://www.lokavant.com)
+- [Documentation](https://aws.amazon.com/startups/learn/lokavant-a-paradigm-shift-in-clinical-trial-intelligence-through-aws-partnership)
+- [Blog](https://blog.lokavant.com)
+- [Postman Collection](collections/datavant-healthjump-ehr.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/datavant-healthjump-ehr.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+
+### Datavant Connect Customer Portal
+
+Datavant Connect is the customer-facing portal that brokers access to
+Datavant's linkage, privacy, and retrieval solutions. Access is invite-only
+and requires portal-administrator credentials; the portal also fronts the
+Aetion Evidence Platform (acquired by Datavant in 2024) for real-world
+evidence workflows. Public API documentation for Connect itself is not
+published — partners integrate through the Datavant CLI for tokenization
+and through the Healthjump API for EHR extraction.
+
+- **Human URL:** [https://portal.datavant.com](https://portal.datavant.com)
+- **Base URL:** `https://portal.datavant.com`
+
+#### Tags
+
+- Health Data
+- Real World Evidence
+- Data Exchange
+- Datavant
+- Aetion
+- Customer Only
+
+#### Properties
+
+- [Portal](https://portal.datavant.com)
+- [Documentation](https://www.datavant.com/products/connect-linkage)
+- [Status Page](https://status.datavant.com)
+- [Postman Collection](collections/datavant-healthjump-ehr.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/datavant-healthjump-ehr.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+
+## Common Properties
+
+- [Portal](https://roivant.com)
+- [Documentation](https://roivant.com/companies)
+- [Blog](https://roivant.com/news/)
+- [Investor Relations](https://investor.roivant.com)
+- [GitHub Organization](https://github.com/datavant)
+- [LinkedIn](https://www.linkedin.com/company/roivant-sciences)
+- [Terms of Service](https://roivant.com/terms-of-use/)
+- [Privacy Policy](https://roivant.com/privacy-policy/)
+- [Plans](plans/roivant-sciences-plans-pricing.yml)
+- [Rate Limits](rate-limits/roivant-sciences-rate-limits.yml)
+- [Fin Ops](finops/roivant-sciences-finops.yml)
+- [Vocabulary](vocabulary/roivant-sciences-vocabulary.yml)
+- [JSON-LD](json-ld/roivant-sciences-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
+
+## Maintainers
+
+**FN:** API Evangelist
+**Email:** info@apievangelist.com
+**URL:** https://apievangelist.com

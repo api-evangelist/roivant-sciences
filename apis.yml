@@ -33,7 +33,6 @@ specificationVersion: '0.18'
 type: Index
 aid: roivant-sciences
 access: 3rd-Party
-
 apis:
   - name: Datavant Healthjump EHR Integration API
     description: |
@@ -83,9 +82,6 @@ apis:
         url: json-schema/datavant-healthjump-vitals-schema.json
       - type: Spectral
         url: rules/datavant-healthjump-rules.yml
-      - type: NaftikoCapability
-        url: capabilities/shared/datavant-healthjump-ehr.yaml
-
   - name: Datavant Tokenization (Datavant Connect)
     description: |
       Datavant's privacy-preserving tokenization technology lets organizations link
@@ -122,7 +118,6 @@ apis:
         url: https://www.datavant.com/partnerships/cloud-integrations
       - type: WhitePaper
         url: https://www.datavant.com/white-papers/datavant-connect-overview-tokenization-technology-structured-data
-
   - name: Lokavant Clinical Trial Intelligence Platform
     description: |
       Lokavant is Roivant's clinical-trial intelligence operating unit. Its platform
@@ -151,12 +146,10 @@ apis:
       - type: Portal
         url: https://www.lokavant.com
       - type: Documentation
-        url: https://aws.amazon.com/startups/learn/lokavant-a-paradigm-shift-in-clinical-trial-intelligence-through-aws-partnership
+        url: >-
+          https://aws.amazon.com/startups/learn/lokavant-a-paradigm-shift-in-clinical-trial-intelligence-through-aws-partnership
       - type: Blog
         url: https://blog.lokavant.com
-      - type: NaftikoCapability
-        url: capabilities/shared/lokavant-clinical-trial-intelligence.yaml
-
   - name: Datavant Connect Customer Portal
     description: |
       Datavant Connect is the customer-facing portal that brokers access to
@@ -184,7 +177,6 @@ apis:
         url: https://www.datavant.com/products/connect-linkage
       - type: StatusPage
         url: https://status.datavant.com
-
 common:
   - type: Portal
     url: https://roivant.com
@@ -212,7 +204,6 @@ common:
     url: vocabulary/roivant-sciences-vocabulary.yml
   - type: JSONLD
     url: json-ld/roivant-sciences-context.jsonld
-
 maintainers:
   - FN: API Evangelist
     email: info@apievangelist.com
