@@ -1,22 +1,9 @@
 {
   "repo": "roivant-sciences",
   "feeds": [
-    {
-      "source": "https://roivant.com/news/feed/",
-      "error": "HTTPError"
-    },
-    {
-      "source": "https://blog.lokavant.com",
-      "error": "URLError"
-    },
-    {
-      "source": "https://roivant.com/companies",
-      "feed_url": "https://roivant.com/companies",
-      "title": "",
-      "saved": 0,
-      "method": "none"
-    }
+    {"source": "https://roivant.com/news/", "saved": 0, "error": "HTTP 404"},
+    {"source": "https://blog.lokavant.com", "saved": 0, "error": "DNS ENOTFOUND"}
   ],
   "post_count": 0,
-  "fetched": "2026-06-14T20:42:17Z"
+  "fetched": "2026-06-27T13:07:18Z"
 }
