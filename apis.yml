@@ -178,6 +178,8 @@ apis:
       - type: StatusPage
         url: https://status.datavant.com
 common:
+  - type: DomainSecurity
+    url: security/roivant-sciences-domain-security.yml
   - type: Authentication
     url: authentication/roivant-sciences-authentication.yml
   - type: OAuthScopes

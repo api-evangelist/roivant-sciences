@@ -1,0 +1,17 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/datavant-healthjump-ehr-openapi.yml
+summary:
+  types:
+  - oauth2
+  oauth2_flows:
+  - clientCredentials
+schemes:
+- name: OAuth2
+  type: oauth2
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://api.healthjump.com/oauth/token
+    scopes: 3
+  sources:
+  - openapi/datavant-healthjump-ehr-openapi.yml
