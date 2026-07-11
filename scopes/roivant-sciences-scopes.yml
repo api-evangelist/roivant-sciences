@@ -1,0 +1,28 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/datavant-healthjump-ehr-openapi.yml
+schemes:
+- name: OAuth2
+  source: openapi/datavant-healthjump-ehr-openapi.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://api.healthjump.com/oauth/token
+scopes:
+- scope: read:clinical
+  description: Read all clinical resources (encounters, vitals, labs, etc.).
+  flows:
+  - clientCredentials
+  sources:
+  - openapi/datavant-healthjump-ehr-openapi.yml
+- scope: read:financial
+  description: Read financial and billing-related fields.
+  flows:
+  - clientCredentials
+  sources:
+  - openapi/datavant-healthjump-ehr-openapi.yml
+- scope: read:patients
+  description: Read patient demographic and clinical records.
+  flows:
+  - clientCredentials
+  sources:
+  - openapi/datavant-healthjump-ehr-openapi.yml

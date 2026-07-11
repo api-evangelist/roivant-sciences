@@ -178,6 +178,10 @@ apis:
       - type: StatusPage
         url: https://status.datavant.com
 common:
+  - type: Authentication
+    url: authentication/roivant-sciences-authentication.yml
+  - type: OAuthScopes
+    url: scopes/roivant-sciences-scopes.yml
   - type: Portal
     url: https://roivant.com
   - type: Documentation
