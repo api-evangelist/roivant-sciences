@@ -1,0 +1,88 @@
+openapi: 3.1.0
+info:
+  title: Datavant Healthjump EHR Integration Allergies Practices API
+  description: 'Reconstructed OpenAPI sketch of the Datavant Healthjump EHR Integration API
+
+    surface, modeled from the public Datavant product page
+
+    (https://www.datavant.com/products/ehr-integrations), the Healthjump landing
+
+    page (https://api.healthjump.com), and the public Healthjump Support knowledge
+
+    base (https://support.healthjump.com), which documents standardized data
+
+    elements across 70+ ambulatory EHR/PM systems including Allscripts,
+
+    Athenahealth, Aprima, Centricity, eClinicalWorks, Elation Health, Epic,
+
+    Greenway (Intergy / PrimeSUITE), MacPractice, MEDITECH, NextGen, Practice
+
+    Fusion, and others. The API exposes ~300 standardized clinical and financial
+
+    data elements per Datavant''s claim. This is a profiling artifact for API
+
+    Evangelist research; consult apidocs.healthjump.com for the authoritative
+
+    contract.
+
+    '
+  version: 1.0.0
+  contact:
+    name: Datavant Support
+    url: https://support.healthjump.com
+  license:
+    name: Proprietary
+    url: https://www.datavant.com/terms-of-use
+servers:
+- url: https://api.healthjump.com/v1
+  description: Healthjump API production endpoint (reconstructed)
+security:
+- OAuth2:
+  - read:patients
+  - read:clinical
+tags:
+- name: Practices
+  description: Connected EHR practice metadata.
+paths:
+  /practices:
+    get:
+      tags:
+      - Practices
+      summary: List Practices
+      operationId: listPractices
+      responses:
+        '200':
+          description: Connected practices and their EHR system metadata.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Practice'
+components:
+  schemas:
+    Practice:
+      type: object
+      properties:
+        client_id:
+          type: integer
+        practice_id:
+          type: string
+        practice_name:
+          type: string
+        ehr_system:
+          type: string
+          description: 'Source EHR/PM brand: Allscripts, Athenahealth, eClinicalWorks, Epic, Greenway Intergy, MEDITECH, NextGen, Practice Fusion, etc.'
+        last_sync:
+          type: string
+          format: date-time
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://api.healthjump.com/oauth/token
+          scopes:
+            read:patients: Read patient demographic and clinical records.
+            read:clinical: Read all clinical resources (encounters, vitals, labs, etc.).
+            read:financial: Read financial and billing-related fields.

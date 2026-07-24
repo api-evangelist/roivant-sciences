@@ -1,0 +1,170 @@
+openapi: 3.1.0
+info:
+  title: Datavant Healthjump EHR Integration Allergies Encounters API
+  description: 'Reconstructed OpenAPI sketch of the Datavant Healthjump EHR Integration API
+
+    surface, modeled from the public Datavant product page
+
+    (https://www.datavant.com/products/ehr-integrations), the Healthjump landing
+
+    page (https://api.healthjump.com), and the public Healthjump Support knowledge
+
+    base (https://support.healthjump.com), which documents standardized data
+
+    elements across 70+ ambulatory EHR/PM systems including Allscripts,
+
+    Athenahealth, Aprima, Centricity, eClinicalWorks, Elation Health, Epic,
+
+    Greenway (Intergy / PrimeSUITE), MacPractice, MEDITECH, NextGen, Practice
+
+    Fusion, and others. The API exposes ~300 standardized clinical and financial
+
+    data elements per Datavant''s claim. This is a profiling artifact for API
+
+    Evangelist research; consult apidocs.healthjump.com for the authoritative
+
+    contract.
+
+    '
+  version: 1.0.0
+  contact:
+    name: Datavant Support
+    url: https://support.healthjump.com
+  license:
+    name: Proprietary
+    url: https://www.datavant.com/terms-of-use
+servers:
+- url: https://api.healthjump.com/v1
+  description: Healthjump API production endpoint (reconstructed)
+security:
+- OAuth2:
+  - read:patients
+  - read:clinical
+tags:
+- name: Encounters
+  description: Clinical encounters and visits.
+paths:
+  /encounters:
+    get:
+      tags:
+      - Encounters
+      summary: List Encounters
+      operationId: listEncounters
+      parameters:
+      - $ref: '#/components/parameters/ClientId'
+      - $ref: '#/components/parameters/PatientIdQuery'
+      - $ref: '#/components/parameters/ModifiedSince'
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Cursor'
+      responses:
+        '200':
+          $ref: '#/components/responses/EncounterList'
+  /encounters/{encounter_id}:
+    get:
+      tags:
+      - Encounters
+      summary: Get Encounter
+      operationId: getEncounter
+      parameters:
+      - name: encounter_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: An encounter record.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Encounter'
+components:
+  parameters:
+    Limit:
+      name: limit
+      in: query
+      description: Maximum records per page (default 100, max 1000).
+      schema:
+        type: integer
+        default: 100
+        maximum: 1000
+    Cursor:
+      name: cursor
+      in: query
+      description: Opaque pagination cursor returned by the previous page.
+      schema:
+        type: string
+    ClientId:
+      name: client_id
+      in: query
+      description: Healthjump tenant identifier scoping the query to a connected practice.
+      schema:
+        type: integer
+    ModifiedSince:
+      name: modified_since
+      in: query
+      description: ISO-8601 timestamp; return only records modified after this instant.
+      schema:
+        type: string
+        format: date-time
+    PatientIdQuery:
+      name: patient_id
+      in: query
+      description: Filter by Healthjump patient identifier.
+      schema:
+        type: string
+  schemas:
+    Encounter:
+      type: object
+      properties:
+        hj_import_int:
+          type: integer
+        client_id:
+          type: integer
+        encounter_id:
+          type: string
+        patient_id:
+          type: string
+        provider_id:
+          type: string
+        encounter_type:
+          type: string
+        encounter_date:
+          type: string
+          format: date-time
+        reason_for_visit:
+          type: string
+        location:
+          type: string
+        status:
+          type: string
+        date_created:
+          type: string
+          format: date-time
+        date_modified:
+          type: string
+          format: date-time
+  responses:
+    EncounterList:
+      description: A page of encounter records.
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Encounter'
+              next_cursor:
+                type: string
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://api.healthjump.com/oauth/token
+          scopes:
+            read:patients: Read patient demographic and clinical records.
+            read:clinical: Read all clinical resources (encounters, vitals, labs, etc.).
+            read:financial: Read financial and billing-related fields.

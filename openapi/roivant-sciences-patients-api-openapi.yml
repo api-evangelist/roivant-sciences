@@ -1,0 +1,208 @@
+openapi: 3.1.0
+info:
+  title: Datavant Healthjump EHR Integration Allergies Patients API
+  description: 'Reconstructed OpenAPI sketch of the Datavant Healthjump EHR Integration API
+
+    surface, modeled from the public Datavant product page
+
+    (https://www.datavant.com/products/ehr-integrations), the Healthjump landing
+
+    page (https://api.healthjump.com), and the public Healthjump Support knowledge
+
+    base (https://support.healthjump.com), which documents standardized data
+
+    elements across 70+ ambulatory EHR/PM systems including Allscripts,
+
+    Athenahealth, Aprima, Centricity, eClinicalWorks, Elation Health, Epic,
+
+    Greenway (Intergy / PrimeSUITE), MacPractice, MEDITECH, NextGen, Practice
+
+    Fusion, and others. The API exposes ~300 standardized clinical and financial
+
+    data elements per Datavant''s claim. This is a profiling artifact for API
+
+    Evangelist research; consult apidocs.healthjump.com for the authoritative
+
+    contract.
+
+    '
+  version: 1.0.0
+  contact:
+    name: Datavant Support
+    url: https://support.healthjump.com
+  license:
+    name: Proprietary
+    url: https://www.datavant.com/terms-of-use
+servers:
+- url: https://api.healthjump.com/v1
+  description: Healthjump API production endpoint (reconstructed)
+security:
+- OAuth2:
+  - read:patients
+  - read:clinical
+tags:
+- name: Patients
+  description: Patient demographics and identifiers.
+paths:
+  /patients:
+    get:
+      tags:
+      - Patients
+      summary: List Patients
+      operationId: listPatients
+      parameters:
+      - $ref: '#/components/parameters/ClientId'
+      - $ref: '#/components/parameters/ModifiedSince'
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Cursor'
+      responses:
+        '200':
+          $ref: '#/components/responses/PatientList'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '429':
+          $ref: '#/components/responses/RateLimited'
+  /patients/{patient_id}:
+    get:
+      tags:
+      - Patients
+      summary: Get Patient
+      operationId: getPatient
+      parameters:
+      - $ref: '#/components/parameters/PatientId'
+      responses:
+        '200':
+          description: A patient record.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Patient'
+        '404':
+          $ref: '#/components/responses/NotFound'
+components:
+  responses:
+    PatientList:
+      description: A page of patient records.
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Patient'
+              next_cursor:
+                type: string
+    Unauthorized:
+      description: Missing or invalid bearer token.
+    RateLimited:
+      description: Request rate limit exceeded.
+    NotFound:
+      description: Resource not found.
+  parameters:
+    Limit:
+      name: limit
+      in: query
+      description: Maximum records per page (default 100, max 1000).
+      schema:
+        type: integer
+        default: 100
+        maximum: 1000
+    PatientId:
+      name: patient_id
+      in: path
+      required: true
+      description: Healthjump patient identifier.
+      schema:
+        type: string
+    Cursor:
+      name: cursor
+      in: query
+      description: Opaque pagination cursor returned by the previous page.
+      schema:
+        type: string
+    ClientId:
+      name: client_id
+      in: query
+      description: Healthjump tenant identifier scoping the query to a connected practice.
+      schema:
+        type: integer
+    ModifiedSince:
+      name: modified_since
+      in: query
+      description: ISO-8601 timestamp; return only records modified after this instant.
+      schema:
+        type: string
+        format: date-time
+  schemas:
+    Patient:
+      type: object
+      properties:
+        hj_import_int:
+          type: integer
+          description: Healthjump record import identifier.
+        client_id:
+          type: integer
+        patient_id:
+          type: string
+        external_patient_id:
+          type: string
+          description: EHR-native patient identifier.
+        first_name:
+          type: string
+        last_name:
+          type: string
+        middle_name:
+          type: string
+        date_of_birth:
+          type: string
+          format: date
+        gender:
+          type: string
+          enum:
+          - male
+          - female
+          - other
+          - unknown
+        race:
+          type: string
+        ethnicity:
+          type: string
+        marital_status:
+          type: string
+        address_line_1:
+          type: string
+        address_line_2:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        zip:
+          type: string
+        country:
+          type: string
+        phone:
+          type: string
+        email:
+          type: string
+          format: email
+        preferred_language:
+          type: string
+        date_created:
+          type: string
+          format: date-time
+        date_modified:
+          type: string
+          format: date-time
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://api.healthjump.com/oauth/token
+          scopes:
+            read:patients: Read patient demographic and clinical records.
+            read:clinical: Read all clinical resources (encounters, vitals, labs, etc.).
+            read:financial: Read financial and billing-related fields.

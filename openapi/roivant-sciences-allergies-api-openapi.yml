@@ -1,0 +1,125 @@
+openapi: 3.1.0
+info:
+  title: Datavant Healthjump EHR Integration Allergies API
+  description: 'Reconstructed OpenAPI sketch of the Datavant Healthjump EHR Integration API
+
+    surface, modeled from the public Datavant product page
+
+    (https://www.datavant.com/products/ehr-integrations), the Healthjump landing
+
+    page (https://api.healthjump.com), and the public Healthjump Support knowledge
+
+    base (https://support.healthjump.com), which documents standardized data
+
+    elements across 70+ ambulatory EHR/PM systems including Allscripts,
+
+    Athenahealth, Aprima, Centricity, eClinicalWorks, Elation Health, Epic,
+
+    Greenway (Intergy / PrimeSUITE), MacPractice, MEDITECH, NextGen, Practice
+
+    Fusion, and others. The API exposes ~300 standardized clinical and financial
+
+    data elements per Datavant''s claim. This is a profiling artifact for API
+
+    Evangelist research; consult apidocs.healthjump.com for the authoritative
+
+    contract.
+
+    '
+  version: 1.0.0
+  contact:
+    name: Datavant Support
+    url: https://support.healthjump.com
+  license:
+    name: Proprietary
+    url: https://www.datavant.com/terms-of-use
+servers:
+- url: https://api.healthjump.com/v1
+  description: Healthjump API production endpoint (reconstructed)
+security:
+- OAuth2:
+  - read:patients
+  - read:clinical
+tags:
+- name: Allergies
+  description: Recorded patient allergies.
+paths:
+  /allergies:
+    get:
+      tags:
+      - Allergies
+      summary: List Allergies
+      operationId: listAllergies
+      parameters:
+      - $ref: '#/components/parameters/ClientId'
+      - $ref: '#/components/parameters/PatientIdQuery'
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Cursor'
+      responses:
+        '200':
+          description: Allergy records for the patient cohort.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Allergy'
+components:
+  parameters:
+    Limit:
+      name: limit
+      in: query
+      description: Maximum records per page (default 100, max 1000).
+      schema:
+        type: integer
+        default: 100
+        maximum: 1000
+    Cursor:
+      name: cursor
+      in: query
+      description: Opaque pagination cursor returned by the previous page.
+      schema:
+        type: string
+    ClientId:
+      name: client_id
+      in: query
+      description: Healthjump tenant identifier scoping the query to a connected practice.
+      schema:
+        type: integer
+    PatientIdQuery:
+      name: patient_id
+      in: query
+      description: Filter by Healthjump patient identifier.
+      schema:
+        type: string
+  schemas:
+    Allergy:
+      type: object
+      properties:
+        client_id:
+          type: integer
+        patient_id:
+          type: string
+        allergy_id:
+          type: string
+        allergen:
+          type: string
+        reaction:
+          type: string
+        severity:
+          type: string
+        onset_date:
+          type: string
+          format: date
+        status:
+          type: string
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://api.healthjump.com/oauth/token
+          scopes:
+            read:patients: Read patient demographic and clinical records.
+            read:clinical: Read all clinical resources (encounters, vitals, labs, etc.).
+            read:financial: Read financial and billing-related fields.

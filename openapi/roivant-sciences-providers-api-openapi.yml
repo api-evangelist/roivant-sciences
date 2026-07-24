@@ -1,0 +1,99 @@
+openapi: 3.1.0
+info:
+  title: Datavant Healthjump EHR Integration Allergies Providers API
+  description: 'Reconstructed OpenAPI sketch of the Datavant Healthjump EHR Integration API
+
+    surface, modeled from the public Datavant product page
+
+    (https://www.datavant.com/products/ehr-integrations), the Healthjump landing
+
+    page (https://api.healthjump.com), and the public Healthjump Support knowledge
+
+    base (https://support.healthjump.com), which documents standardized data
+
+    elements across 70+ ambulatory EHR/PM systems including Allscripts,
+
+    Athenahealth, Aprima, Centricity, eClinicalWorks, Elation Health, Epic,
+
+    Greenway (Intergy / PrimeSUITE), MacPractice, MEDITECH, NextGen, Practice
+
+    Fusion, and others. The API exposes ~300 standardized clinical and financial
+
+    data elements per Datavant''s claim. This is a profiling artifact for API
+
+    Evangelist research; consult apidocs.healthjump.com for the authoritative
+
+    contract.
+
+    '
+  version: 1.0.0
+  contact:
+    name: Datavant Support
+    url: https://support.healthjump.com
+  license:
+    name: Proprietary
+    url: https://www.datavant.com/terms-of-use
+servers:
+- url: https://api.healthjump.com/v1
+  description: Healthjump API production endpoint (reconstructed)
+security:
+- OAuth2:
+  - read:patients
+  - read:clinical
+tags:
+- name: Providers
+  description: Provider directory and identifiers.
+paths:
+  /providers:
+    get:
+      tags:
+      - Providers
+      summary: List Providers
+      operationId: listProviders
+      parameters:
+      - $ref: '#/components/parameters/ClientId'
+      responses:
+        '200':
+          description: Provider directory for the connected practice.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Provider'
+components:
+  parameters:
+    ClientId:
+      name: client_id
+      in: query
+      description: Healthjump tenant identifier scoping the query to a connected practice.
+      schema:
+        type: integer
+  schemas:
+    Provider:
+      type: object
+      properties:
+        client_id:
+          type: integer
+        provider_id:
+          type: string
+        npi:
+          type: string
+        first_name:
+          type: string
+        last_name:
+          type: string
+        specialty:
+          type: string
+        practice_id:
+          type: string
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://api.healthjump.com/oauth/token
+          scopes:
+            read:patients: Read patient demographic and clinical records.
+            read:clinical: Read all clinical resources (encounters, vitals, labs, etc.).
+            read:financial: Read financial and billing-related fields.
