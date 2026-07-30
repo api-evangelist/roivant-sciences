@@ -15,6 +15,19 @@ description: |
 url: https://github.com/api-evangelist/roivant-sciences
 humanURL: https://roivant.com
 baseURL: https://roivant.com
+accessModel:
+  pricing: enterprise
+  onboarding: approval
+  trial: false
+  try_now: false
+  public: false
+  label: Enterprise · Requires approval
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 image: https://roivant.com/favicon.ico
 tags:
   - Biotech
@@ -34,149 +47,567 @@ type: Index
 aid: roivant-sciences
 access: 3rd-Party
 apis:
-  - name: Datavant Healthjump EHR Integration API
-    description: |
-      Public REST API operated by Datavant (via the acquired Healthjump platform) for
-      extracting clinical and financial data from 70+ on-premise and cloud-hosted
-      ambulatory EHR/PM systems. Datavant standardizes 300+ data elements across the
-      connected systems and delivers them via API, webhooks, flat file, or HL7. The
-      API surface is published at apidocs.healthjump.com and serves customers building
-      patient engagement, quality reporting, and population-health products on top of
-      ambulatory EHR data.
-    humanURL: https://www.datavant.com/products/ehr-integrations
-    baseURL: https://api.healthjump.com
-    image: https://www.datavant.com/favicon.ico
-    tags:
-      - Electronic Health Records
-      - Health Data
-      - Integration
-      - EHR
-      - Interoperability
-      - Datavant
-      - Healthjump
-    aid: datavant-healthjump-ehr
-    properties:
-      - type: Documentation
-        url: https://apidocs.healthjump.com
-      - type: APIReference
-        url: https://apidocs.healthjump.com
-      - type: GettingStarted
-        url: https://api.healthjump.com
-      - type: DeveloperPortal
-        url: https://apidocs.healthjump.com
-      - type: Portal
-        url: https://portal.datavant.com
-      - type: Support
-        url: https://support.healthjump.com
-      - type: Integrations
-        url: https://www.datavant.com/products/ehr-integrations
-      - type: StatusPage
-        url: https://status.datavant.com
-      - type: OpenAPI
-        url: openapi/datavant-healthjump-ehr-openapi.yml
-      - type: JSONSchema
-        url: json-schema/datavant-healthjump-patient-schema.json
-      - type: JSONSchema
-        url: json-schema/datavant-healthjump-encounter-schema.json
-      - type: JSONSchema
-        url: json-schema/datavant-healthjump-vitals-schema.json
-      - type: Spectral
-        url: rules/datavant-healthjump-rules.yml
-  - name: Datavant Tokenization (Datavant Connect)
-    description: |
-      Datavant's privacy-preserving tokenization technology lets organizations link
-      patient records across datasets without exchanging personally identifiable
-      information. It is delivered as a downloadable Datavant CLI (Mac/Windows/Linux)
-      plus a Datavant Desktop GUI, runnable on-premise or in the customer's cloud
-      environment, with companion documentation in the Datavant Help Center. The
-      tokenization layer powers the broader Datavant Connect platform (Linkage
-      Solutions, Privacy Solutions, Retrieval Solutions) and the Switchboard-style
-      data ecosystem that brokers exchange across payers, providers, and 350+
-      real-world data partners.
-    humanURL: https://www.datavant.com/products/connect-linkage
-    baseURL: https://portal.datavant.com
-    image: https://www.datavant.com/favicon.ico
-    tags:
-      - Tokenization
-      - Privacy
-      - Patient Linkage
-      - Health Data
-      - Real World Data
-      - Datavant
-      - CLI
-    aid: datavant-tokenization
-    properties:
-      - type: Documentation
-        url: https://datavant-aws-marketplace-files.s3.amazonaws.com/tokenization_user_guide.pdf
-      - type: CLI
-        url: https://portal.datavant.com
-      - type: Portal
-        url: https://portal.datavant.com
-      - type: StatusPage
-        url: https://status.datavant.com
-      - type: Marketplace
-        url: https://www.datavant.com/partnerships/cloud-integrations
-      - type: WhitePaper
-        url: https://www.datavant.com/white-papers/datavant-connect-overview-tokenization-technology-structured-data
-  - name: Lokavant Clinical Trial Intelligence Platform
-    description: |
-      Lokavant is Roivant's clinical-trial intelligence operating unit. Its platform
-      ingests data via 21+ source connectors and a proprietary repository of 2,000+
-      harmonized prior trials plus 14,000+ third-party trials, surfacing predictive
-      analytics for sponsors and CROs through two named products: Oversight
-      (risk-based quality management at study/country/site/patient level) and Insight
-      (performance benchmarking against the historical trial corpus). The platform
-      runs on AWS — Amazon Cognito for authentication with customer SAML2/OIDC SSO,
-      API Gateway + Lambda for composite services, ECS/Fargate microservices,
-      Snowflake data marts, and Apache Airflow for ingestion. Access is invite-only
-      for sponsor/CRO customers; there is no public developer portal or OpenAPI spec.
-    humanURL: https://www.lokavant.com
-    baseURL: https://www.lokavant.com
-    image: https://www.lokavant.com/favicon.ico
-    tags:
-      - Clinical Trials
-      - Clinical Trial Intelligence
-      - Predictive Analytics
-      - Risk-Based Monitoring
-      - Trial Forecasting
-      - Lokavant
-      - Customer Only
-    aid: lokavant-clinical-trial-intelligence
-    properties:
-      - type: Portal
-        url: https://www.lokavant.com
-      - type: Documentation
-        url: >-
-          https://aws.amazon.com/startups/learn/lokavant-a-paradigm-shift-in-clinical-trial-intelligence-through-aws-partnership
-      - type: Blog
-        url: https://blog.lokavant.com
-  - name: Datavant Connect Customer Portal
-    description: |
-      Datavant Connect is the customer-facing portal that brokers access to
-      Datavant's linkage, privacy, and retrieval solutions. Access is invite-only
-      and requires portal-administrator credentials; the portal also fronts the
-      Aetion Evidence Platform (acquired by Datavant in 2024) for real-world
-      evidence workflows. Public API documentation for Connect itself is not
-      published — partners integrate through the Datavant CLI for tokenization
-      and through the Healthjump API for EHR extraction.
-    humanURL: https://portal.datavant.com
-    baseURL: https://portal.datavant.com
-    image: https://www.datavant.com/favicon.ico
-    tags:
-      - Health Data
-      - Real World Evidence
-      - Data Exchange
-      - Datavant
-      - Aetion
-      - Customer Only
-    aid: datavant-connect-portal
-    properties:
-      - type: Portal
-        url: https://portal.datavant.com
-      - type: Documentation
-        url: https://www.datavant.com/products/connect-linkage
-      - type: StatusPage
-        url: https://status.datavant.com
+- name: Datavant Tokenization (Datavant Connect)
+  description: >
+    Datavant's privacy-preserving tokenization technology lets organizations link
+
+    patient records across datasets without exchanging personally identifiable
+
+    information. It is delivered as a downloadable Datavant CLI (Mac/Windows/Linux)
+
+    plus a Datavant Desktop GUI, runnable on-premise or in the customer's cloud
+
+    environment, with companion documentation in the Datavant Help Center. The
+
+    tokenization layer powers the broader Datavant Connect platform (Linkage
+
+    Solutions, Privacy Solutions, Retrieval Solutions) and the Switchboard-style
+
+    data ecosystem that brokers exchange across payers, providers, and 350+
+
+    real-world data partners.
+  humanURL: https://www.datavant.com/products/connect-linkage
+  baseURL: https://portal.datavant.com
+  image: https://www.datavant.com/favicon.ico
+  tags:
+  - Tokenization
+  - Privacy
+  - Patient Linkage
+  - Health Data
+  - Real World Data
+  - Datavant
+  - CLI
+  aid: datavant-tokenization
+  properties:
+  - type: Documentation
+    url: https://datavant-aws-marketplace-files.s3.amazonaws.com/tokenization_user_guide.pdf
+  - type: CLI
+    url: https://portal.datavant.com
+  - type: Portal
+    url: https://portal.datavant.com
+  - type: StatusPage
+    url: https://status.datavant.com
+  - type: Marketplace
+    url: https://www.datavant.com/partnerships/cloud-integrations
+  - type: WhitePaper
+    url: >-
+      https://www.datavant.com/white-papers/datavant-connect-overview-tokenization-technology-structured-data
+- name: Lokavant Clinical Trial Intelligence Platform
+  description: >
+    Lokavant is Roivant's clinical-trial intelligence operating unit. Its platform
+
+    ingests data via 21+ source connectors and a proprietary repository of 2,000+
+
+    harmonized prior trials plus 14,000+ third-party trials, surfacing predictive
+
+    analytics for sponsors and CROs through two named products: Oversight
+
+    (risk-based quality management at study/country/site/patient level) and Insight
+
+    (performance benchmarking against the historical trial corpus). The platform
+
+    runs on AWS — Amazon Cognito for authentication with customer SAML2/OIDC SSO,
+
+    API Gateway + Lambda for composite services, ECS/Fargate microservices,
+
+    Snowflake data marts, and Apache Airflow for ingestion. Access is invite-only
+
+    for sponsor/CRO customers; there is no public developer portal or OpenAPI spec.
+  humanURL: https://www.lokavant.com
+  baseURL: https://www.lokavant.com
+  image: https://www.lokavant.com/favicon.ico
+  tags:
+  - Clinical Trials
+  - Clinical Trial Intelligence
+  - Predictive Analytics
+  - Risk-Based Monitoring
+  - Trial Forecasting
+  - Lokavant
+  - Customer Only
+  aid: lokavant-clinical-trial-intelligence
+  properties:
+  - type: Portal
+    url: https://www.lokavant.com
+  - type: Documentation
+    url: >-
+      https://aws.amazon.com/startups/learn/lokavant-a-paradigm-shift-in-clinical-trial-intelligence-through-aws-partnership
+  - type: Blog
+    url: https://blog.lokavant.com
+- name: Datavant Connect Customer Portal
+  description: >
+    Datavant Connect is the customer-facing portal that brokers access to
+
+    Datavant's linkage, privacy, and retrieval solutions. Access is invite-only
+
+    and requires portal-administrator credentials; the portal also fronts the
+
+    Aetion Evidence Platform (acquired by Datavant in 2024) for real-world
+
+    evidence workflows. Public API documentation for Connect itself is not
+
+    published — partners integrate through the Datavant CLI for tokenization
+
+    and through the Healthjump API for EHR extraction.
+  humanURL: https://portal.datavant.com
+  baseURL: https://portal.datavant.com
+  image: https://www.datavant.com/favicon.ico
+  tags:
+  - Health Data
+  - Real World Evidence
+  - Data Exchange
+  - Datavant
+  - Aetion
+  - Customer Only
+  aid: datavant-connect-portal
+  properties:
+  - type: Portal
+    url: https://portal.datavant.com
+  - type: Documentation
+    url: https://www.datavant.com/products/connect-linkage
+  - type: StatusPage
+    url: https://status.datavant.com
+- aid: roivant-sciences:roivant-sciences-allergies-api
+  name: Roivant Sciences Allergies API
+  description: Recorded patient allergies.
+  humanURL: https://www.datavant.com/products/ehr-integrations
+  baseURL: https://api.healthjump.com
+  tags:
+  - Allergies
+  properties:
+  - type: OpenAPI
+    url: openapi/roivant-sciences-allergies-api-openapi.yml
+  - type: Documentation
+    url: https://apidocs.healthjump.com
+  - type: APIReference
+    url: https://apidocs.healthjump.com
+  - type: GettingStarted
+    url: https://api.healthjump.com
+  - type: DeveloperPortal
+    url: https://apidocs.healthjump.com
+  - type: Portal
+    url: https://portal.datavant.com
+  - type: Support
+    url: https://support.healthjump.com
+  - type: Integrations
+    url: https://www.datavant.com/products/ehr-integrations
+  - type: StatusPage
+    url: https://status.datavant.com
+  - type: JSONSchema
+    url: json-schema/datavant-healthjump-patient-schema.json
+  - type: JSONSchema
+    url: json-schema/datavant-healthjump-encounter-schema.json
+  - type: JSONSchema
+    url: json-schema/datavant-healthjump-vitals-schema.json
+  - type: Spectral
+    url: rules/datavant-healthjump-rules.yml
+- aid: roivant-sciences:roivant-sciences-appointments-api
+  name: Roivant Sciences Appointments API
+  description: Appointment and scheduling data.
+  humanURL: https://www.datavant.com/products/ehr-integrations
+  baseURL: https://api.healthjump.com
+  tags:
+  - Appointments
+  properties:
+  - type: OpenAPI
+    url: openapi/roivant-sciences-appointments-api-openapi.yml
+  - type: Documentation
+    url: https://apidocs.healthjump.com
+  - type: APIReference
+    url: https://apidocs.healthjump.com
+  - type: GettingStarted
+    url: https://api.healthjump.com
+  - type: DeveloperPortal
+    url: https://apidocs.healthjump.com
+  - type: Portal
+    url: https://portal.datavant.com
+  - type: Support
+    url: https://support.healthjump.com
+  - type: Integrations
+    url: https://www.datavant.com/products/ehr-integrations
+  - type: StatusPage
+    url: https://status.datavant.com
+  - type: JSONSchema
+    url: json-schema/datavant-healthjump-patient-schema.json
+  - type: JSONSchema
+    url: json-schema/datavant-healthjump-encounter-schema.json
+  - type: JSONSchema
+    url: json-schema/datavant-healthjump-vitals-schema.json
+  - type: Spectral
+    url: rules/datavant-healthjump-rules.yml
+- aid: roivant-sciences:roivant-sciences-diagnoses-api
+  name: Roivant Sciences Diagnoses API
+  description: Clinical diagnoses and problem list.
+  humanURL: https://www.datavant.com/products/ehr-integrations
+  baseURL: https://api.healthjump.com
+  tags:
+  - Diagnoses
+  properties:
+  - type: OpenAPI
+    url: openapi/roivant-sciences-diagnoses-api-openapi.yml
+  - type: Documentation
+    url: https://apidocs.healthjump.com
+  - type: APIReference
+    url: https://apidocs.healthjump.com
+  - type: GettingStarted
+    url: https://api.healthjump.com
+  - type: DeveloperPortal
+    url: https://apidocs.healthjump.com
+  - type: Portal
+    url: https://portal.datavant.com
+  - type: Support
+    url: https://support.healthjump.com
+  - type: Integrations
+    url: https://www.datavant.com/products/ehr-integrations
+  - type: StatusPage
+    url: https://status.datavant.com
+  - type: JSONSchema
+    url: json-schema/datavant-healthjump-patient-schema.json
+  - type: JSONSchema
+    url: json-schema/datavant-healthjump-encounter-schema.json
+  - type: JSONSchema
+    url: json-schema/datavant-healthjump-vitals-schema.json
+  - type: Spectral
+    url: rules/datavant-healthjump-rules.yml
+- aid: roivant-sciences:roivant-sciences-documents-api
+  name: Roivant Sciences Documents API
+  description: Unstructured clinical notes and document extraction.
+  humanURL: https://www.datavant.com/products/ehr-integrations
+  baseURL: https://api.healthjump.com
+  tags:
+  - Documents
+  properties:
+  - type: OpenAPI
+    url: openapi/roivant-sciences-documents-api-openapi.yml
+  - type: Documentation
+    url: https://apidocs.healthjump.com
+  - type: APIReference
+    url: https://apidocs.healthjump.com
+  - type: GettingStarted
+    url: https://api.healthjump.com
+  - type: DeveloperPortal
+    url: https://apidocs.healthjump.com
+  - type: Portal
+    url: https://portal.datavant.com
+  - type: Support
+    url: https://support.healthjump.com
+  - type: Integrations
+    url: https://www.datavant.com/products/ehr-integrations
+  - type: StatusPage
+    url: https://status.datavant.com
+  - type: JSONSchema
+    url: json-schema/datavant-healthjump-patient-schema.json
+  - type: JSONSchema
+    url: json-schema/datavant-healthjump-encounter-schema.json
+  - type: JSONSchema
+    url: json-schema/datavant-healthjump-vitals-schema.json
+  - type: Spectral
+    url: rules/datavant-healthjump-rules.yml
+- aid: roivant-sciences:roivant-sciences-encounters-api
+  name: Roivant Sciences Encounters API
+  description: Clinical encounters and visits.
+  humanURL: https://www.datavant.com/products/ehr-integrations
+  baseURL: https://api.healthjump.com
+  tags:
+  - Encounters
+  properties:
+  - type: OpenAPI
+    url: openapi/roivant-sciences-encounters-api-openapi.yml
+  - type: Documentation
+    url: https://apidocs.healthjump.com
+  - type: APIReference
+    url: https://apidocs.healthjump.com
+  - type: GettingStarted
+    url: https://api.healthjump.com
+  - type: DeveloperPortal
+    url: https://apidocs.healthjump.com
+  - type: Portal
+    url: https://portal.datavant.com
+  - type: Support
+    url: https://support.healthjump.com
+  - type: Integrations
+    url: https://www.datavant.com/products/ehr-integrations
+  - type: StatusPage
+    url: https://status.datavant.com
+  - type: JSONSchema
+    url: json-schema/datavant-healthjump-patient-schema.json
+  - type: JSONSchema
+    url: json-schema/datavant-healthjump-encounter-schema.json
+  - type: JSONSchema
+    url: json-schema/datavant-healthjump-vitals-schema.json
+  - type: Spectral
+    url: rules/datavant-healthjump-rules.yml
+- aid: roivant-sciences:roivant-sciences-immunizations-api
+  name: Roivant Sciences Immunizations API
+  description: Immunization history.
+  humanURL: https://www.datavant.com/products/ehr-integrations
+  baseURL: https://api.healthjump.com
+  tags:
+  - Immunizations
+  properties:
+  - type: OpenAPI
+    url: openapi/roivant-sciences-immunizations-api-openapi.yml
+  - type: Documentation
+    url: https://apidocs.healthjump.com
+  - type: APIReference
+    url: https://apidocs.healthjump.com
+  - type: GettingStarted
+    url: https://api.healthjump.com
+  - type: DeveloperPortal
+    url: https://apidocs.healthjump.com
+  - type: Portal
+    url: https://portal.datavant.com
+  - type: Support
+    url: https://support.healthjump.com
+  - type: Integrations
+    url: https://www.datavant.com/products/ehr-integrations
+  - type: StatusPage
+    url: https://status.datavant.com
+  - type: JSONSchema
+    url: json-schema/datavant-healthjump-patient-schema.json
+  - type: JSONSchema
+    url: json-schema/datavant-healthjump-encounter-schema.json
+  - type: JSONSchema
+    url: json-schema/datavant-healthjump-vitals-schema.json
+  - type: Spectral
+    url: rules/datavant-healthjump-rules.yml
+- aid: roivant-sciences:roivant-sciences-labs-api
+  name: Roivant Sciences Labs API
+  description: Laboratory orders and results.
+  humanURL: https://www.datavant.com/products/ehr-integrations
+  baseURL: https://api.healthjump.com
+  tags:
+  - Labs
+  properties:
+  - type: OpenAPI
+    url: openapi/roivant-sciences-labs-api-openapi.yml
+  - type: Documentation
+    url: https://apidocs.healthjump.com
+  - type: APIReference
+    url: https://apidocs.healthjump.com
+  - type: GettingStarted
+    url: https://api.healthjump.com
+  - type: DeveloperPortal
+    url: https://apidocs.healthjump.com
+  - type: Portal
+    url: https://portal.datavant.com
+  - type: Support
+    url: https://support.healthjump.com
+  - type: Integrations
+    url: https://www.datavant.com/products/ehr-integrations
+  - type: StatusPage
+    url: https://status.datavant.com
+  - type: JSONSchema
+    url: json-schema/datavant-healthjump-patient-schema.json
+  - type: JSONSchema
+    url: json-schema/datavant-healthjump-encounter-schema.json
+  - type: JSONSchema
+    url: json-schema/datavant-healthjump-vitals-schema.json
+  - type: Spectral
+    url: rules/datavant-healthjump-rules.yml
+- aid: roivant-sciences:roivant-sciences-medications-api
+  name: Roivant Sciences Medications API
+  description: Prescribed and administered medications.
+  humanURL: https://www.datavant.com/products/ehr-integrations
+  baseURL: https://api.healthjump.com
+  tags:
+  - Medications
+  properties:
+  - type: OpenAPI
+    url: openapi/roivant-sciences-medications-api-openapi.yml
+  - type: Documentation
+    url: https://apidocs.healthjump.com
+  - type: APIReference
+    url: https://apidocs.healthjump.com
+  - type: GettingStarted
+    url: https://api.healthjump.com
+  - type: DeveloperPortal
+    url: https://apidocs.healthjump.com
+  - type: Portal
+    url: https://portal.datavant.com
+  - type: Support
+    url: https://support.healthjump.com
+  - type: Integrations
+    url: https://www.datavant.com/products/ehr-integrations
+  - type: StatusPage
+    url: https://status.datavant.com
+  - type: JSONSchema
+    url: json-schema/datavant-healthjump-patient-schema.json
+  - type: JSONSchema
+    url: json-schema/datavant-healthjump-encounter-schema.json
+  - type: JSONSchema
+    url: json-schema/datavant-healthjump-vitals-schema.json
+  - type: Spectral
+    url: rules/datavant-healthjump-rules.yml
+- aid: roivant-sciences:roivant-sciences-patients-api
+  name: Roivant Sciences Patients API
+  description: Patient demographics and identifiers.
+  humanURL: https://www.datavant.com/products/ehr-integrations
+  baseURL: https://api.healthjump.com
+  tags:
+  - Patients
+  properties:
+  - type: OpenAPI
+    url: openapi/roivant-sciences-patients-api-openapi.yml
+  - type: Documentation
+    url: https://apidocs.healthjump.com
+  - type: APIReference
+    url: https://apidocs.healthjump.com
+  - type: GettingStarted
+    url: https://api.healthjump.com
+  - type: DeveloperPortal
+    url: https://apidocs.healthjump.com
+  - type: Portal
+    url: https://portal.datavant.com
+  - type: Support
+    url: https://support.healthjump.com
+  - type: Integrations
+    url: https://www.datavant.com/products/ehr-integrations
+  - type: StatusPage
+    url: https://status.datavant.com
+  - type: JSONSchema
+    url: json-schema/datavant-healthjump-patient-schema.json
+  - type: JSONSchema
+    url: json-schema/datavant-healthjump-encounter-schema.json
+  - type: JSONSchema
+    url: json-schema/datavant-healthjump-vitals-schema.json
+  - type: Spectral
+    url: rules/datavant-healthjump-rules.yml
+- aid: roivant-sciences:roivant-sciences-practices-api
+  name: Roivant Sciences Practices API
+  description: Connected EHR practice metadata.
+  humanURL: https://www.datavant.com/products/ehr-integrations
+  baseURL: https://api.healthjump.com
+  tags:
+  - Practices
+  properties:
+  - type: OpenAPI
+    url: openapi/roivant-sciences-practices-api-openapi.yml
+  - type: Documentation
+    url: https://apidocs.healthjump.com
+  - type: APIReference
+    url: https://apidocs.healthjump.com
+  - type: GettingStarted
+    url: https://api.healthjump.com
+  - type: DeveloperPortal
+    url: https://apidocs.healthjump.com
+  - type: Portal
+    url: https://portal.datavant.com
+  - type: Support
+    url: https://support.healthjump.com
+  - type: Integrations
+    url: https://www.datavant.com/products/ehr-integrations
+  - type: StatusPage
+    url: https://status.datavant.com
+  - type: JSONSchema
+    url: json-schema/datavant-healthjump-patient-schema.json
+  - type: JSONSchema
+    url: json-schema/datavant-healthjump-encounter-schema.json
+  - type: JSONSchema
+    url: json-schema/datavant-healthjump-vitals-schema.json
+  - type: Spectral
+    url: rules/datavant-healthjump-rules.yml
+- aid: roivant-sciences:roivant-sciences-procedures-api
+  name: Roivant Sciences Procedures API
+  description: Procedures performed.
+  humanURL: https://www.datavant.com/products/ehr-integrations
+  baseURL: https://api.healthjump.com
+  tags:
+  - Procedures
+  properties:
+  - type: OpenAPI
+    url: openapi/roivant-sciences-procedures-api-openapi.yml
+  - type: Documentation
+    url: https://apidocs.healthjump.com
+  - type: APIReference
+    url: https://apidocs.healthjump.com
+  - type: GettingStarted
+    url: https://api.healthjump.com
+  - type: DeveloperPortal
+    url: https://apidocs.healthjump.com
+  - type: Portal
+    url: https://portal.datavant.com
+  - type: Support
+    url: https://support.healthjump.com
+  - type: Integrations
+    url: https://www.datavant.com/products/ehr-integrations
+  - type: StatusPage
+    url: https://status.datavant.com
+  - type: JSONSchema
+    url: json-schema/datavant-healthjump-patient-schema.json
+  - type: JSONSchema
+    url: json-schema/datavant-healthjump-encounter-schema.json
+  - type: JSONSchema
+    url: json-schema/datavant-healthjump-vitals-schema.json
+  - type: Spectral
+    url: rules/datavant-healthjump-rules.yml
+- aid: roivant-sciences:roivant-sciences-providers-api
+  name: Roivant Sciences Providers API
+  description: Provider directory and identifiers.
+  humanURL: https://www.datavant.com/products/ehr-integrations
+  baseURL: https://api.healthjump.com
+  tags:
+  - Providers
+  properties:
+  - type: OpenAPI
+    url: openapi/roivant-sciences-providers-api-openapi.yml
+  - type: Documentation
+    url: https://apidocs.healthjump.com
+  - type: APIReference
+    url: https://apidocs.healthjump.com
+  - type: GettingStarted
+    url: https://api.healthjump.com
+  - type: DeveloperPortal
+    url: https://apidocs.healthjump.com
+  - type: Portal
+    url: https://portal.datavant.com
+  - type: Support
+    url: https://support.healthjump.com
+  - type: Integrations
+    url: https://www.datavant.com/products/ehr-integrations
+  - type: StatusPage
+    url: https://status.datavant.com
+  - type: JSONSchema
+    url: json-schema/datavant-healthjump-patient-schema.json
+  - type: JSONSchema
+    url: json-schema/datavant-healthjump-encounter-schema.json
+  - type: JSONSchema
+    url: json-schema/datavant-healthjump-vitals-schema.json
+  - type: Spectral
+    url: rules/datavant-healthjump-rules.yml
+- aid: roivant-sciences:roivant-sciences-vitals-api
+  name: Roivant Sciences Vitals API
+  description: Vital signs measurements.
+  humanURL: https://www.datavant.com/products/ehr-integrations
+  baseURL: https://api.healthjump.com
+  tags:
+  - Vitals
+  properties:
+  - type: OpenAPI
+    url: openapi/roivant-sciences-vitals-api-openapi.yml
+  - type: Documentation
+    url: https://apidocs.healthjump.com
+  - type: APIReference
+    url: https://apidocs.healthjump.com
+  - type: GettingStarted
+    url: https://api.healthjump.com
+  - type: DeveloperPortal
+    url: https://apidocs.healthjump.com
+  - type: Portal
+    url: https://portal.datavant.com
+  - type: Support
+    url: https://support.healthjump.com
+  - type: Integrations
+    url: https://www.datavant.com/products/ehr-integrations
+  - type: StatusPage
+    url: https://status.datavant.com
+  - type: JSONSchema
+    url: json-schema/datavant-healthjump-patient-schema.json
+  - type: JSONSchema
+    url: json-schema/datavant-healthjump-encounter-schema.json
+  - type: JSONSchema
+    url: json-schema/datavant-healthjump-vitals-schema.json
+  - type: Spectral
+    url: rules/datavant-healthjump-rules.yml
 common:
   - type: AgenticAccess
     url: agentic-access/roivant-sciences-agentic-access.yml
