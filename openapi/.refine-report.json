@@ -1,0 +1,38 @@
+{
+  "provider": "roivant-sciences",
+  "sources": [
+    "roivant-sciences-allergies-api-openapi.yml",
+    "roivant-sciences-appointments-api-openapi.yml",
+    "roivant-sciences-diagnoses-api-openapi.yml",
+    "roivant-sciences-documents-api-openapi.yml",
+    "roivant-sciences-encounters-api-openapi.yml",
+    "roivant-sciences-immunizations-api-openapi.yml",
+    "roivant-sciences-labs-api-openapi.yml",
+    "roivant-sciences-medications-api-openapi.yml",
+    "roivant-sciences-patients-api-openapi.yml",
+    "roivant-sciences-practices-api-openapi.yml",
+    "roivant-sciences-procedures-api-openapi.yml",
+    "roivant-sciences-providers-api-openapi.yml",
+    "roivant-sciences-vitals-api-openapi.yml"
+  ],
+  "outputs": [
+    "roivant-sciences-allergies-api-openapi.yml",
+    "roivant-sciences-appointments-api-openapi.yml",
+    "roivant-sciences-diagnoses-api-openapi.yml",
+    "roivant-sciences-documents-api-openapi.yml",
+    "roivant-sciences-encounters-api-openapi.yml",
+    "roivant-sciences-immunizations-api-openapi.yml",
+    "roivant-sciences-labs-api-openapi.yml",
+    "roivant-sciences-medications-api-openapi.yml",
+    "roivant-sciences-patients-api-openapi.yml",
+    "roivant-sciences-practices-api-openapi.yml",
+    "roivant-sciences-procedures-api-openapi.yml",
+    "roivant-sciences-providers-api-openapi.yml",
+    "roivant-sciences-vitals-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
