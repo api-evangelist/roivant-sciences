@@ -1,0 +1,136 @@
+{
+  "item": [
+    {
+      "id": "6f6815d5-bf7f-4528-9371-0323bc20847a",
+      "name": "Providers",
+      "description": {
+        "content": "Provider directory and identifiers.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d5fec3d1-25d0-4a4e-acf2-19e622737490",
+          "name": "List Providers",
+          "request": {
+            "name": "List Providers",
+            "description": {},
+            "url": {
+              "path": [
+                "providers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "client_id",
+                  "value": "<integer>",
+                  "description": "Healthjump tenant identifier scoping the query to a connected practice."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d63fac8c-8c55-43be-85ee-795e0479f32e",
+              "name": "Provider directory for the connected practice.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "providers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "client_id",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"client_id\": 7751,\n    \"provider_id\": \"string\",\n    \"npi\": \"string\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\",\n    \"specialty\": \"string\",\n    \"practice_id\": \"string\"\n  },\n  {\n    \"client_id\": 5746,\n    \"provider_id\": \"string\",\n    \"npi\": \"string\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\",\n    \"specialty\": \"string\",\n    \"practice_id\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.healthjump.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "read:patients read:clinical read:financial"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://api.healthjump.com/oauth/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "9fc70492-aa4f-41f0-90fd-92e9dcce9a48",
+    "name": "Datavant Healthjump EHR Integration Allergies Providers API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Reconstructed OpenAPI sketch of the Datavant Healthjump EHR Integration API\nsurface, modeled from the public Datavant product page\n(https://www.datavant.com/products/ehr-integrations), the Healthjump landing\npage (https://api.healthjump.com), and the public Healthjump Support knowledge\nbase (https://support.healthjump.com), which documents standardized data\nelements across 70+ ambulatory EHR/PM systems including Allscripts,\nAthenahealth, Aprima, Centricity, eClinicalWorks, Elation Health, Epic,\nGreenway (Intergy / PrimeSUITE), MacPractice, MEDITECH, NextGen, Practice\nFusion, and others. The API exposes ~300 standardized clinical and financial\ndata elements per Datavant's claim. This is a profiling artifact for API\nEvangelist research; consult apidocs.healthjump.com for the authoritative\ncontract.\n\n\nContact Support:\n Name: Datavant Support",
+      "type": "text/plain"
+    }
+  }
+}

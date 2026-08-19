@@ -1,0 +1,166 @@
+{
+  "item": [
+    {
+      "id": "d29e6e2c-e58a-489d-8d54-438b88cb0dcf",
+      "name": "Immunizations",
+      "description": {
+        "content": "Immunization history.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "85d91442-b309-41ba-b4fd-deb32f4c2f3c",
+          "name": "List Immunizations",
+          "request": {
+            "name": "List Immunizations",
+            "description": {},
+            "url": {
+              "path": [
+                "immunizations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "client_id",
+                  "value": "<integer>",
+                  "description": "Healthjump tenant identifier scoping the query to a connected practice."
+                },
+                {
+                  "disabled": false,
+                  "key": "patient_id",
+                  "value": "<string>",
+                  "description": "Filter by Healthjump patient identifier."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "100",
+                  "description": "Maximum records per page (default 100, max 1000)."
+                },
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>",
+                  "description": "Opaque pagination cursor returned by the previous page."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "78ed4fed-c528-4393-bcb0-4016e706fad6",
+              "name": "Immunization records.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "immunizations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "client_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "patient_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"client_id\": 4229,\n    \"patient_id\": \"string\",\n    \"immunization_id\": \"string\",\n    \"vaccine\": \"string\",\n    \"cvx_code\": \"string\",\n    \"administered_date\": \"1953-11-01\",\n    \"dose_number\": 39,\n    \"administered_by\": \"string\"\n  },\n  {\n    \"client_id\": 482,\n    \"patient_id\": \"string\",\n    \"immunization_id\": \"string\",\n    \"vaccine\": \"string\",\n    \"cvx_code\": \"string\",\n    \"administered_date\": \"1959-02-10\",\n    \"dose_number\": 3052,\n    \"administered_by\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.healthjump.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "read:patients read:clinical read:financial"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://api.healthjump.com/oauth/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "f26ccaa3-a658-4d7c-849f-06560973df3a",
+    "name": "Datavant Healthjump EHR Integration Allergies Immunizations API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Reconstructed OpenAPI sketch of the Datavant Healthjump EHR Integration API\nsurface, modeled from the public Datavant product page\n(https://www.datavant.com/products/ehr-integrations), the Healthjump landing\npage (https://api.healthjump.com), and the public Healthjump Support knowledge\nbase (https://support.healthjump.com), which documents standardized data\nelements across 70+ ambulatory EHR/PM systems including Allscripts,\nAthenahealth, Aprima, Centricity, eClinicalWorks, Elation Health, Epic,\nGreenway (Intergy / PrimeSUITE), MacPractice, MEDITECH, NextGen, Practice\nFusion, and others. The API exposes ~300 standardized clinical and financial\ndata elements per Datavant's claim. This is a profiling artifact for API\nEvangelist research; consult apidocs.healthjump.com for the authoritative\ncontract.\n\n\nContact Support:\n Name: Datavant Support",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,166 @@
+{
+  "item": [
+    {
+      "id": "e0d61abe-5c79-4c38-97af-0f3fbb589974",
+      "name": "Appointments",
+      "description": {
+        "content": "Appointment and scheduling data.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c1ab35a6-734a-415a-9551-0dbcbb14a750",
+          "name": "List Appointments",
+          "request": {
+            "name": "List Appointments",
+            "description": {},
+            "url": {
+              "path": [
+                "appointments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "client_id",
+                  "value": "<integer>",
+                  "description": "Healthjump tenant identifier scoping the query to a connected practice."
+                },
+                {
+                  "disabled": false,
+                  "key": "patient_id",
+                  "value": "<string>",
+                  "description": "Filter by Healthjump patient identifier."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "100",
+                  "description": "Maximum records per page (default 100, max 1000)."
+                },
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>",
+                  "description": "Opaque pagination cursor returned by the previous page."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1f19555e-fe9c-46dd-9892-1ab74f532c89",
+              "name": "Appointment records.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "appointments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "client_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "patient_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"client_id\": 7022,\n    \"patient_id\": \"string\",\n    \"appointment_id\": \"string\",\n    \"provider_id\": \"string\",\n    \"appointment_date\": \"1956-06-16T01:06:58.656Z\",\n    \"appointment_type\": \"string\",\n    \"status\": \"string\",\n    \"location\": \"string\"\n  },\n  {\n    \"client_id\": 2127,\n    \"patient_id\": \"string\",\n    \"appointment_id\": \"string\",\n    \"provider_id\": \"string\",\n    \"appointment_date\": \"1966-11-28T11:18:31.835Z\",\n    \"appointment_type\": \"string\",\n    \"status\": \"string\",\n    \"location\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.healthjump.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "read:patients read:clinical read:financial"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://api.healthjump.com/oauth/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "534b68fc-bcf5-4817-ac83-d9874059ffde",
+    "name": "Datavant Healthjump EHR Integration Allergies Appointments API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Reconstructed OpenAPI sketch of the Datavant Healthjump EHR Integration API\nsurface, modeled from the public Datavant product page\n(https://www.datavant.com/products/ehr-integrations), the Healthjump landing\npage (https://api.healthjump.com), and the public Healthjump Support knowledge\nbase (https://support.healthjump.com), which documents standardized data\nelements across 70+ ambulatory EHR/PM systems including Allscripts,\nAthenahealth, Aprima, Centricity, eClinicalWorks, Elation Health, Epic,\nGreenway (Intergy / PrimeSUITE), MacPractice, MEDITECH, NextGen, Practice\nFusion, and others. The API exposes ~300 standardized clinical and financial\ndata elements per Datavant's claim. This is a profiling artifact for API\nEvangelist research; consult apidocs.healthjump.com for the authoritative\ncontract.\n\n\nContact Support:\n Name: Datavant Support",
+      "type": "text/plain"
+    }
+  }
+}

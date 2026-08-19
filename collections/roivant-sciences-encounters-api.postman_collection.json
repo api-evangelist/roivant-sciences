@@ -1,0 +1,269 @@
+{
+  "item": [
+    {
+      "id": "8506cddd-808c-41b4-82d2-24e6940fe394",
+      "name": "Encounters",
+      "description": {
+        "content": "Clinical encounters and visits.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4dbde743-d5cd-4a2d-a9ec-63117a665055",
+          "name": "List Encounters",
+          "request": {
+            "name": "List Encounters",
+            "description": {},
+            "url": {
+              "path": [
+                "encounters"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "client_id",
+                  "value": "<integer>",
+                  "description": "Healthjump tenant identifier scoping the query to a connected practice."
+                },
+                {
+                  "disabled": false,
+                  "key": "patient_id",
+                  "value": "<string>",
+                  "description": "Filter by Healthjump patient identifier."
+                },
+                {
+                  "disabled": false,
+                  "key": "modified_since",
+                  "value": "<dateTime>",
+                  "description": "ISO-8601 timestamp; return only records modified after this instant."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "100",
+                  "description": "Maximum records per page (default 100, max 1000)."
+                },
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>",
+                  "description": "Opaque pagination cursor returned by the previous page."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d0efe440-42a7-4f45-968e-45b6f574dbf1",
+              "name": "A page of encounter records.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "encounters"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "client_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "patient_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "modified_since",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"hj_import_int\": 482,\n      \"client_id\": 137,\n      \"encounter_id\": \"string\",\n      \"patient_id\": \"string\",\n      \"provider_id\": \"string\",\n      \"encounter_type\": \"string\",\n      \"encounter_date\": \"2006-11-08T12:20:57.164Z\",\n      \"reason_for_visit\": \"string\",\n      \"location\": \"string\",\n      \"status\": \"string\",\n      \"date_created\": \"1969-07-08T22:21:44.977Z\",\n      \"date_modified\": \"2013-04-22T12:01:50.235Z\"\n    },\n    {\n      \"hj_import_int\": 8610,\n      \"client_id\": 60,\n      \"encounter_id\": \"string\",\n      \"patient_id\": \"string\",\n      \"provider_id\": \"string\",\n      \"encounter_type\": \"string\",\n      \"encounter_date\": \"2023-11-21T17:49:54.720Z\",\n      \"reason_for_visit\": \"string\",\n      \"location\": \"string\",\n      \"status\": \"string\",\n      \"date_created\": \"1966-02-10T05:38:59.446Z\",\n      \"date_modified\": \"1949-08-15T15:16:38.846Z\"\n    }\n  ],\n  \"next_cursor\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5d566248-e0a3-4311-8298-3c18d631224f",
+          "name": "Get Encounter",
+          "request": {
+            "name": "Get Encounter",
+            "description": {},
+            "url": {
+              "path": [
+                "encounters",
+                ":encounter_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "encounter_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3dcfc27a-349b-4a05-a0d9-a101c7c7ae90",
+              "name": "An encounter record.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "encounters",
+                    ":encounter_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "encounter_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"hj_import_int\": 3439,\n  \"client_id\": 6758,\n  \"encounter_id\": \"string\",\n  \"patient_id\": \"string\",\n  \"provider_id\": \"string\",\n  \"encounter_type\": \"string\",\n  \"encounter_date\": \"2005-09-01T16:51:33.486Z\",\n  \"reason_for_visit\": \"string\",\n  \"location\": \"string\",\n  \"status\": \"string\",\n  \"date_created\": \"1965-05-26T12:49:34.309Z\",\n  \"date_modified\": \"2010-08-12T14:50:21.451Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.healthjump.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "read:patients read:clinical read:financial"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://api.healthjump.com/oauth/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "9d5b46da-61f4-4fd9-82e4-7e74dc5f6fa9",
+    "name": "Datavant Healthjump EHR Integration Allergies Encounters API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Reconstructed OpenAPI sketch of the Datavant Healthjump EHR Integration API\nsurface, modeled from the public Datavant product page\n(https://www.datavant.com/products/ehr-integrations), the Healthjump landing\npage (https://api.healthjump.com), and the public Healthjump Support knowledge\nbase (https://support.healthjump.com), which documents standardized data\nelements across 70+ ambulatory EHR/PM systems including Allscripts,\nAthenahealth, Aprima, Centricity, eClinicalWorks, Elation Health, Epic,\nGreenway (Intergy / PrimeSUITE), MacPractice, MEDITECH, NextGen, Practice\nFusion, and others. The API exposes ~300 standardized clinical and financial\ndata elements per Datavant's claim. This is a profiling artifact for API\nEvangelist research; consult apidocs.healthjump.com for the authoritative\ncontract.\n\n\nContact Support:\n Name: Datavant Support",
+      "type": "text/plain"
+    }
+  }
+}

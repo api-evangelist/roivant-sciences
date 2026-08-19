@@ -1,0 +1,40 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Datavant Healthjump EHR Integration Allergies Practices API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://api.healthjump.com/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Practices",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Practices",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.healthjump.com/v1/practices"
+          },
+          "docs": "List Practices"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

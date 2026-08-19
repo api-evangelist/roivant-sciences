@@ -1,0 +1,176 @@
+{
+  "item": [
+    {
+      "id": "0f07933a-b7f0-43fd-a6d5-969c1452bf5d",
+      "name": "Vitals",
+      "description": {
+        "content": "Vital signs measurements.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c9c4ee5e-2b78-47f9-bb6e-1c9deaebfa50",
+          "name": "List Vitals",
+          "request": {
+            "name": "List Vitals",
+            "description": {},
+            "url": {
+              "path": [
+                "vitals"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "client_id",
+                  "value": "<integer>",
+                  "description": "Healthjump tenant identifier scoping the query to a connected practice."
+                },
+                {
+                  "disabled": false,
+                  "key": "patient_id",
+                  "value": "<string>",
+                  "description": "Filter by Healthjump patient identifier."
+                },
+                {
+                  "disabled": false,
+                  "key": "modified_since",
+                  "value": "<dateTime>",
+                  "description": "ISO-8601 timestamp; return only records modified after this instant."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "100",
+                  "description": "Maximum records per page (default 100, max 1000)."
+                },
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>",
+                  "description": "Opaque pagination cursor returned by the previous page."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "97cc80a3-4823-4742-9112-b6b7752cc6d9",
+              "name": "A page of vitals records.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vitals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "client_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "patient_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "modified_since",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"hj_import_int\": 1829,\n      \"client_id\": 7790,\n      \"patient_id\": \"string\",\n      \"encounter_id\": \"string\",\n      \"measurement_date\": \"1966-06-16T01:21:24.015Z\",\n      \"height_cm\": 5663.1461153853825,\n      \"weight_kg\": 1911.7538589684834,\n      \"bmi\": 7925.378151240967,\n      \"systolic_bp\": 7416,\n      \"diastolic_bp\": 358,\n      \"heart_rate\": 2926,\n      \"respiratory_rate\": 7801,\n      \"temperature_c\": 28.942750960783137,\n      \"oxygen_saturation\": 9819.719671057845,\n      \"date_created\": \"1994-08-12T16:14:18.958Z\",\n      \"date_modified\": \"1955-11-26T02:51:12.113Z\"\n    },\n    {\n      \"hj_import_int\": 3246,\n      \"client_id\": 499,\n      \"patient_id\": \"string\",\n      \"encounter_id\": \"string\",\n      \"measurement_date\": \"1951-11-01T21:13:13.697Z\",\n      \"height_cm\": 3712.392028460235,\n      \"weight_kg\": 2303.8260365806773,\n      \"bmi\": 3170.1810630022064,\n      \"systolic_bp\": 2260,\n      \"diastolic_bp\": 5014,\n      \"heart_rate\": 7804,\n      \"respiratory_rate\": 9387,\n      \"temperature_c\": 8759.345491793418,\n      \"oxygen_saturation\": 9829.616391091027,\n      \"date_created\": \"1987-09-09T02:52:04.218Z\",\n      \"date_modified\": \"1964-01-20T05:16:47.755Z\"\n    }\n  ],\n  \"next_cursor\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.healthjump.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "read:patients read:clinical read:financial"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://api.healthjump.com/oauth/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "33f623c1-802f-4b95-b25c-34f8ca25e2e6",
+    "name": "Datavant Healthjump EHR Integration Allergies Vitals API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Reconstructed OpenAPI sketch of the Datavant Healthjump EHR Integration API\nsurface, modeled from the public Datavant product page\n(https://www.datavant.com/products/ehr-integrations), the Healthjump landing\npage (https://api.healthjump.com), and the public Healthjump Support knowledge\nbase (https://support.healthjump.com), which documents standardized data\nelements across 70+ ambulatory EHR/PM systems including Allscripts,\nAthenahealth, Aprima, Centricity, eClinicalWorks, Elation Health, Epic,\nGreenway (Intergy / PrimeSUITE), MacPractice, MEDITECH, NextGen, Practice\nFusion, and others. The API exposes ~300 standardized clinical and financial\ndata elements per Datavant's claim. This is a profiling artifact for API\nEvangelist research; consult apidocs.healthjump.com for the authoritative\ncontract.\n\n\nContact Support:\n Name: Datavant Support",
+      "type": "text/plain"
+    }
+  }
+}
