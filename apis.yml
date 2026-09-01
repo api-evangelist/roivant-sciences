@@ -49,7 +49,7 @@ tags:
   - Health Data
   - Tokenization
   - Electronic Health Records
-  - Real World Evidence
+  - Real-World Evidence
   - Holding Company
   - Healthcare
 tags_raw:
@@ -184,7 +184,7 @@ apis:
   image: https://www.datavant.com/favicon.ico
   tags:
   - Health Data
-  - Real World Evidence
+  - Real-World Evidence
   - Data Exchange
   - Datavant
   - Aetion
