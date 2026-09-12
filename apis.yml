@@ -647,6 +647,8 @@ apis:
   - type: Spectral
     url: rules/datavant-healthjump-rules.yml
 common:
+  - type: Website
+    url: https://www.roivant.com/
   - type: AgenticAccess
     url: agentic-access/roivant-sciences-agentic-access.yml
   - type: DomainSecurity
