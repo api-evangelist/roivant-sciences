@@ -461,6 +461,8 @@ apis:
   humanURL: https://www.datavant.com/products/ehr-integrations
   baseURL: https://api.healthjump.com
   tags:
+  - Medication
+  tags_raw:
   - Medications
   properties:
   - type: OpenAPI
