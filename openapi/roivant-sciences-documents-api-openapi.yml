@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Datavant Healthjump EHR Integration Allergies Documents API
+  title: Datavant Healthjump EHR Integration Documents API
   description: 'Reconstructed OpenAPI sketch of the Datavant Healthjump EHR Integration API
 
     surface, modeled from the public Datavant product page
@@ -13,19 +13,7 @@ info:
 
     elements across 70+ ambulatory EHR/PM systems including Allscripts,
 
-    Athenahealth, Aprima, Centricity, eClinicalWorks, Elation Health, Epic,
-
-    Greenway (Intergy / PrimeSUITE), MacPractice, MEDITECH, NextGen, Practice
-
-    Fusion, and others. The API exposes ~300 standardized clinical and financial
-
-    data elements per Datavant''s claim. This is a profiling artifact for API
-
-    Evangelist research; consult apidocs.healthjump.com for the authoritative
-
-    contract.
-
-    '
+    Athenahealth, Aprima, Centricity, eClinicalWorks, Elation Health…'
   version: 1.0.0
   contact:
     name: Datavant Support
@@ -65,33 +53,6 @@ paths:
                 items:
                   $ref: '#/components/schemas/Document'
 components:
-  parameters:
-    Limit:
-      name: limit
-      in: query
-      description: Maximum records per page (default 100, max 1000).
-      schema:
-        type: integer
-        default: 100
-        maximum: 1000
-    Cursor:
-      name: cursor
-      in: query
-      description: Opaque pagination cursor returned by the previous page.
-      schema:
-        type: string
-    ClientId:
-      name: client_id
-      in: query
-      description: Healthjump tenant identifier scoping the query to a connected practice.
-      schema:
-        type: integer
-    PatientIdQuery:
-      name: patient_id
-      in: query
-      description: Filter by Healthjump patient identifier.
-      schema:
-        type: string
   schemas:
     Document:
       type: object
@@ -114,6 +75,33 @@ components:
         document_date:
           type: string
           format: date-time
+  parameters:
+    Cursor:
+      name: cursor
+      in: query
+      description: Opaque pagination cursor returned by the previous page.
+      schema:
+        type: string
+    ClientId:
+      name: client_id
+      in: query
+      description: Healthjump tenant identifier scoping the query to a connected practice.
+      schema:
+        type: integer
+    PatientIdQuery:
+      name: patient_id
+      in: query
+      description: Filter by Healthjump patient identifier.
+      schema:
+        type: string
+    Limit:
+      name: limit
+      in: query
+      description: Maximum records per page (default 100, max 1000).
+      schema:
+        type: integer
+        default: 100
+        maximum: 1000
   securitySchemes:
     OAuth2:
       type: oauth2

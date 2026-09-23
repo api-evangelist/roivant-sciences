@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Datavant Healthjump EHR Integration Allergies Patients API
+  title: Datavant Healthjump EHR Integration Patients API
   description: 'Reconstructed OpenAPI sketch of the Datavant Healthjump EHR Integration API
 
     surface, modeled from the public Datavant product page
@@ -13,19 +13,7 @@ info:
 
     elements across 70+ ambulatory EHR/PM systems including Allscripts,
 
-    Athenahealth, Aprima, Centricity, eClinicalWorks, Elation Health, Epic,
-
-    Greenway (Intergy / PrimeSUITE), MacPractice, MEDITECH, NextGen, Practice
-
-    Fusion, and others. The API exposes ~300 standardized clinical and financial
-
-    data elements per Datavant''s claim. This is a profiling artifact for API
-
-    Evangelist research; consult apidocs.healthjump.com for the authoritative
-
-    contract.
-
-    '
+    Athenahealth, Aprima, Centricity, eClinicalWorks, Elation Health…'
   version: 1.0.0
   contact:
     name: Datavant Support
@@ -80,61 +68,6 @@ paths:
         '404':
           $ref: '#/components/responses/NotFound'
 components:
-  responses:
-    PatientList:
-      description: A page of patient records.
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              data:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Patient'
-              next_cursor:
-                type: string
-    Unauthorized:
-      description: Missing or invalid bearer token.
-    RateLimited:
-      description: Request rate limit exceeded.
-    NotFound:
-      description: Resource not found.
-  parameters:
-    Limit:
-      name: limit
-      in: query
-      description: Maximum records per page (default 100, max 1000).
-      schema:
-        type: integer
-        default: 100
-        maximum: 1000
-    PatientId:
-      name: patient_id
-      in: path
-      required: true
-      description: Healthjump patient identifier.
-      schema:
-        type: string
-    Cursor:
-      name: cursor
-      in: query
-      description: Opaque pagination cursor returned by the previous page.
-      schema:
-        type: string
-    ClientId:
-      name: client_id
-      in: query
-      description: Healthjump tenant identifier scoping the query to a connected practice.
-      schema:
-        type: integer
-    ModifiedSince:
-      name: modified_since
-      in: query
-      description: ISO-8601 timestamp; return only records modified after this instant.
-      schema:
-        type: string
-        format: date-time
   schemas:
     Patient:
       type: object
@@ -196,6 +129,61 @@ components:
         date_modified:
           type: string
           format: date-time
+  parameters:
+    Cursor:
+      name: cursor
+      in: query
+      description: Opaque pagination cursor returned by the previous page.
+      schema:
+        type: string
+    ClientId:
+      name: client_id
+      in: query
+      description: Healthjump tenant identifier scoping the query to a connected practice.
+      schema:
+        type: integer
+    ModifiedSince:
+      name: modified_since
+      in: query
+      description: ISO-8601 timestamp; return only records modified after this instant.
+      schema:
+        type: string
+        format: date-time
+    PatientId:
+      name: patient_id
+      in: path
+      required: true
+      description: Healthjump patient identifier.
+      schema:
+        type: string
+    Limit:
+      name: limit
+      in: query
+      description: Maximum records per page (default 100, max 1000).
+      schema:
+        type: integer
+        default: 100
+        maximum: 1000
+  responses:
+    NotFound:
+      description: Resource not found.
+    RateLimited:
+      description: Request rate limit exceeded.
+    PatientList:
+      description: A page of patient records.
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Patient'
+              next_cursor:
+                type: string
+    Unauthorized:
+      description: Missing or invalid bearer token.
   securitySchemes:
     OAuth2:
       type: oauth2
