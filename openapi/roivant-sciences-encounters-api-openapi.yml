@@ -68,12 +68,6 @@ paths:
                 $ref: '#/components/schemas/Encounter'
 components:
   parameters:
-    Cursor:
-      name: cursor
-      in: query
-      description: Opaque pagination cursor returned by the previous page.
-      schema:
-        type: string
     ClientId:
       name: client_id
       in: query
@@ -86,13 +80,6 @@ components:
       description: Filter by Healthjump patient identifier.
       schema:
         type: string
-    ModifiedSince:
-      name: modified_since
-      in: query
-      description: ISO-8601 timestamp; return only records modified after this instant.
-      schema:
-        type: string
-        format: date-time
     Limit:
       name: limit
       in: query
@@ -101,6 +88,33 @@ components:
         type: integer
         default: 100
         maximum: 1000
+    ModifiedSince:
+      name: modified_since
+      in: query
+      description: ISO-8601 timestamp; return only records modified after this instant.
+      schema:
+        type: string
+        format: date-time
+    Cursor:
+      name: cursor
+      in: query
+      description: Opaque pagination cursor returned by the previous page.
+      schema:
+        type: string
+  responses:
+    EncounterList:
+      description: A page of encounter records.
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Encounter'
+              next_cursor:
+                type: string
   schemas:
     Encounter:
       type: object
@@ -132,20 +146,6 @@ components:
         date_modified:
           type: string
           format: date-time
-  responses:
-    EncounterList:
-      description: A page of encounter records.
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              data:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Encounter'
-              next_cursor:
-                type: string
   securitySchemes:
     OAuth2:
       type: oauth2

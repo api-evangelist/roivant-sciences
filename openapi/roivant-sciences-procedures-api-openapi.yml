@@ -53,6 +53,33 @@ paths:
                 items:
                   $ref: '#/components/schemas/Procedure'
 components:
+  parameters:
+    ClientId:
+      name: client_id
+      in: query
+      description: Healthjump tenant identifier scoping the query to a connected practice.
+      schema:
+        type: integer
+    Limit:
+      name: limit
+      in: query
+      description: Maximum records per page (default 100, max 1000).
+      schema:
+        type: integer
+        default: 100
+        maximum: 1000
+    PatientIdQuery:
+      name: patient_id
+      in: query
+      description: Filter by Healthjump patient identifier.
+      schema:
+        type: string
+    Cursor:
+      name: cursor
+      in: query
+      description: Opaque pagination cursor returned by the previous page.
+      schema:
+        type: string
   schemas:
     Procedure:
       type: object
@@ -76,33 +103,6 @@ components:
           format: date
         provider_id:
           type: string
-  parameters:
-    Cursor:
-      name: cursor
-      in: query
-      description: Opaque pagination cursor returned by the previous page.
-      schema:
-        type: string
-    ClientId:
-      name: client_id
-      in: query
-      description: Healthjump tenant identifier scoping the query to a connected practice.
-      schema:
-        type: integer
-    PatientIdQuery:
-      name: patient_id
-      in: query
-      description: Filter by Healthjump patient identifier.
-      schema:
-        type: string
-    Limit:
-      name: limit
-      in: query
-      description: Maximum records per page (default 100, max 1000).
-      schema:
-        type: integer
-        default: 100
-        maximum: 1000
   securitySchemes:
     OAuth2:
       type: oauth2
