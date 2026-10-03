@@ -68,48 +68,7 @@ paths:
         '404':
           $ref: '#/components/responses/NotFound'
 components:
-  parameters:
-    PatientId:
-      name: patient_id
-      in: path
-      required: true
-      description: Healthjump patient identifier.
-      schema:
-        type: string
-    ClientId:
-      name: client_id
-      in: query
-      description: Healthjump tenant identifier scoping the query to a connected practice.
-      schema:
-        type: integer
-    Limit:
-      name: limit
-      in: query
-      description: Maximum records per page (default 100, max 1000).
-      schema:
-        type: integer
-        default: 100
-        maximum: 1000
-    ModifiedSince:
-      name: modified_since
-      in: query
-      description: ISO-8601 timestamp; return only records modified after this instant.
-      schema:
-        type: string
-        format: date-time
-    Cursor:
-      name: cursor
-      in: query
-      description: Opaque pagination cursor returned by the previous page.
-      schema:
-        type: string
   responses:
-    RateLimited:
-      description: Request rate limit exceeded.
-    Unauthorized:
-      description: Missing or invalid bearer token.
-    NotFound:
-      description: Resource not found.
     PatientList:
       description: A page of patient records.
       content:
@@ -123,6 +82,47 @@ components:
                   $ref: '#/components/schemas/Patient'
               next_cursor:
                 type: string
+    RateLimited:
+      description: Request rate limit exceeded.
+    Unauthorized:
+      description: Missing or invalid bearer token.
+    NotFound:
+      description: Resource not found.
+  parameters:
+    ModifiedSince:
+      name: modified_since
+      in: query
+      description: ISO-8601 timestamp; return only records modified after this instant.
+      schema:
+        type: string
+        format: date-time
+    ClientId:
+      name: client_id
+      in: query
+      description: Healthjump tenant identifier scoping the query to a connected practice.
+      schema:
+        type: integer
+    PatientId:
+      name: patient_id
+      in: path
+      required: true
+      description: Healthjump patient identifier.
+      schema:
+        type: string
+    Limit:
+      name: limit
+      in: query
+      description: Maximum records per page (default 100, max 1000).
+      schema:
+        type: integer
+        default: 100
+        maximum: 1000
+    Cursor:
+      name: cursor
+      in: query
+      description: Opaque pagination cursor returned by the previous page.
+      schema:
+        type: string
   schemas:
     Patient:
       type: object

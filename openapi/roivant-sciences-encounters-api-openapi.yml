@@ -68,6 +68,13 @@ paths:
                 $ref: '#/components/schemas/Encounter'
 components:
   parameters:
+    ModifiedSince:
+      name: modified_since
+      in: query
+      description: ISO-8601 timestamp; return only records modified after this instant.
+      schema:
+        type: string
+        format: date-time
     ClientId:
       name: client_id
       in: query
@@ -88,13 +95,6 @@ components:
         type: integer
         default: 100
         maximum: 1000
-    ModifiedSince:
-      name: modified_since
-      in: query
-      description: ISO-8601 timestamp; return only records modified after this instant.
-      schema:
-        type: string
-        format: date-time
     Cursor:
       name: cursor
       in: query

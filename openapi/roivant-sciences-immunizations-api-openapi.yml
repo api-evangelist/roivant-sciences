@@ -60,6 +60,12 @@ components:
       description: Healthjump tenant identifier scoping the query to a connected practice.
       schema:
         type: integer
+    PatientIdQuery:
+      name: patient_id
+      in: query
+      description: Filter by Healthjump patient identifier.
+      schema:
+        type: string
     Limit:
       name: limit
       in: query
@@ -68,12 +74,6 @@ components:
         type: integer
         default: 100
         maximum: 1000
-    PatientIdQuery:
-      name: patient_id
-      in: query
-      description: Filter by Healthjump patient identifier.
-      schema:
-        type: string
     Cursor:
       name: cursor
       in: query
