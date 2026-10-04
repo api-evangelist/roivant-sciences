@@ -59,7 +59,6 @@ tags:
 - Drug Development
 - Clinical Trials
 - Health Data
-- Tokenization
 - Electronic Health Records
 - Real-World Evidence
 - Holding Company
@@ -70,7 +69,6 @@ tags_raw:
 - Drug Development
 - Clinical Trials
 - Health Data
-- Tokenization
 - Electronic Health Records
 - Real World Evidence
 - Holding Company
@@ -702,3 +700,5 @@ maintainers:
 - FN: API Evangelist
   email: info@apievangelist.com
   url: https://apievangelist.com
+x-tags-removed:
+- Tokenization
