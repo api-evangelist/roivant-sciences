@@ -48,6 +48,40 @@ paths:
         '200':
           $ref: '#/components/responses/VitalsList'
 components:
+  parameters:
+    Cursor:
+      name: cursor
+      in: query
+      description: Opaque pagination cursor returned by the previous page.
+      schema:
+        type: string
+    PatientIdQuery:
+      name: patient_id
+      in: query
+      description: Filter by Healthjump patient identifier.
+      schema:
+        type: string
+    ClientId:
+      name: client_id
+      in: query
+      description: Healthjump tenant identifier scoping the query to a connected practice.
+      schema:
+        type: integer
+    Limit:
+      name: limit
+      in: query
+      description: Maximum records per page (default 100, max 1000).
+      schema:
+        type: integer
+        default: 100
+        maximum: 1000
+    ModifiedSince:
+      name: modified_since
+      in: query
+      description: ISO-8601 timestamp; return only records modified after this instant.
+      schema:
+        type: string
+        format: date-time
   responses:
     VitalsList:
       description: A page of vitals records.
@@ -62,40 +96,6 @@ components:
                   $ref: '#/components/schemas/Vitals'
               next_cursor:
                 type: string
-  parameters:
-    ModifiedSince:
-      name: modified_since
-      in: query
-      description: ISO-8601 timestamp; return only records modified after this instant.
-      schema:
-        type: string
-        format: date-time
-    ClientId:
-      name: client_id
-      in: query
-      description: Healthjump tenant identifier scoping the query to a connected practice.
-      schema:
-        type: integer
-    PatientIdQuery:
-      name: patient_id
-      in: query
-      description: Filter by Healthjump patient identifier.
-      schema:
-        type: string
-    Limit:
-      name: limit
-      in: query
-      description: Maximum records per page (default 100, max 1000).
-      schema:
-        type: integer
-        default: 100
-        maximum: 1000
-    Cursor:
-      name: cursor
-      in: query
-      description: Opaque pagination cursor returned by the previous page.
-      schema:
-        type: string
   schemas:
     Vitals:
       type: object

@@ -76,18 +76,24 @@ components:
           type: string
           format: date-time
   parameters:
-    ClientId:
-      name: client_id
+    Cursor:
+      name: cursor
       in: query
-      description: Healthjump tenant identifier scoping the query to a connected practice.
+      description: Opaque pagination cursor returned by the previous page.
       schema:
-        type: integer
+        type: string
     PatientIdQuery:
       name: patient_id
       in: query
       description: Filter by Healthjump patient identifier.
       schema:
         type: string
+    ClientId:
+      name: client_id
+      in: query
+      description: Healthjump tenant identifier scoping the query to a connected practice.
+      schema:
+        type: integer
     Limit:
       name: limit
       in: query
@@ -96,12 +102,6 @@ components:
         type: integer
         default: 100
         maximum: 1000
-    Cursor:
-      name: cursor
-      in: query
-      description: Opaque pagination cursor returned by the previous page.
-      schema:
-        type: string
   securitySchemes:
     OAuth2:
       type: oauth2

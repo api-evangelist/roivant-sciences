@@ -54,12 +54,6 @@ paths:
                   $ref: '#/components/schemas/Appointment'
 components:
   parameters:
-    ClientId:
-      name: client_id
-      in: query
-      description: Healthjump tenant identifier scoping the query to a connected practice.
-      schema:
-        type: integer
     Cursor:
       name: cursor
       in: query
@@ -72,6 +66,12 @@ components:
       description: Filter by Healthjump patient identifier.
       schema:
         type: string
+    ClientId:
+      name: client_id
+      in: query
+      description: Healthjump tenant identifier scoping the query to a connected practice.
+      schema:
+        type: integer
     Limit:
       name: limit
       in: query
