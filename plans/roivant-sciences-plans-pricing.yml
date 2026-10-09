@@ -1,3 +1,8 @@
+# Provenance stamped 2026-10-07 (roadmap#943): written by an API Evangelist sweep (dated 2026-05-23 by the file itself), not
+# harvested from the provider. `method: generated` so the economics campaign may replace it with a
+# dated, verbatim transcription; every figure below is unverified until it does.
+method: generated
+generated: '2026-05-23'
 apiCommonsPlansVersion: '0.1'
 name: Roivant Sciences Plans and Pricing
 description: |
@@ -48,3 +53,27 @@ plans:
 
 publicPricingAvailable: false
 contactSales: https://www.datavant.com/contact-us
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models: []
+  units: []
+  plans:
+  - name: Datavant Enterprise (Contact Sales)
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods: []
+  - name: Lokavant Enterprise (Contact Sales)
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods: []
+  - name: Roivant Biopharma Vants — Not Applicable
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods: []
